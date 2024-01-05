@@ -56,18 +56,17 @@
     </div>
 </nav>
 
-
 <!-- CARROUSEL    -->
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-56 overflow-hidden md:h-96">
         <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://dummyimage.com/600x400/000/fff"
+            <img src="https://dummyimage.com/800x400/000/fff"
                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://dummyimage.com/600x400/000/fff"
+            <img src="https://dummyimage.com/800x400/000/fff"
                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
     </div>
