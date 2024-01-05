@@ -64,6 +64,12 @@
                             <span>Banner</span>
                         </a>
                     </li>
+                    <li class="sidebar-item @yield('pricing')">
+                        <a href="{{ route('pricing.show', '1') }}" class='sidebar-link'>
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Pricing</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
