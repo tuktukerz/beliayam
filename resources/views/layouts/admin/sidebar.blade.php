@@ -58,6 +58,12 @@
                             <span>Site Identity</span>
                         </a>
                     </li>
+                    <li class="sidebar-item @yield('banner')">
+                        <a href="{{ route('banner.show', '1') }}" class='sidebar-link'>
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Banner</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
