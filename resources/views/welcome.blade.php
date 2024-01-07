@@ -10,54 +10,19 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<section class='py-2 bg-[#007bff] text-white text-right px-10'>
-    <p class='text-sm'><strong class="mx-2">Address:</strong>SWF New York 185669<strong class="mx-2">Contact
-            No:</strong>1800333665</p>
-</section>
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-        </a>
-        <button data-collapse-toggle="navbar-default" type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-        </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul
-                class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                        aria-current="page">Home</a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                </li>
-            </ul>
+<section class='py-2 bg-gray-800 text-white text-right px-10 sm:flex items-center justify-center sm:justify-between'>
+    <x-Socials />
+    <div class="flex gap-2">
+        <div class="group flex items-center gap-2 justify-center">
+            <x-icon link="https://wa.me/08123141424" alt="Whatsapp number"
+                path="M12.036 5.339c-3.635 0-6.591 2.956-6.593 6.589-.001 1.483.434 2.594 1.164 3.756l-.666 2.432 2.494-.654c1.117.663 2.184 1.061 3.595 1.061 3.632 0 6.591-2.956 6.592-6.59.003-3.641-2.942-6.593-6.586-6.594zm3.876 9.423c-.165.463-.957.885-1.337.942-.341.051-.773.072-1.248-.078-.288-.091-.657-.213-1.129-.417-1.987-.858-3.285-2.859-3.384-2.991-.099-.132-.809-1.074-.809-2.049 0-.975.512-1.454.693-1.653.182-.2.396-.25.528-.25l.38.007c.122.006.285-.046.446.34.165.397.561 1.372.611 1.471.049.099.083.215.016.347-.066.132-.099.215-.198.33l-.297.347c-.099.099-.202.206-.087.404.116.198.513.847 1.102 1.372.757.675 1.395.884 1.593.983.198.099.314.083.429-.05.116-.132.495-.578.627-.777s.264-.165.446-.099 1.156.545 1.354.645c.198.099.33.149.38.231.049.085.049.482-.116.945zm3.088-14.762h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-6.967 19.862c-1.327 0-2.634-.333-3.792-.965l-4.203 1.103 1.125-4.108c-.694-1.202-1.059-2.566-1.058-3.964.002-4.372 3.558-7.928 7.928-7.928 2.121.001 4.112.827 5.609 2.325s2.321 3.491 2.32 5.609c-.002 4.372-3.559 7.928-7.929 7.928z" />
+            <a href="https://wa.me/08123141424" target="_blank"
+                class="group-hover:text-yellow-300 text-lg font-light text-gray-300">+628120414150</a>
         </div>
     </div>
-</nav>
+</section>
+
+<x-Navbar />
 
 <!-- CARROUSEL    -->
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
