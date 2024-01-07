@@ -62,22 +62,24 @@
 <!-- CARROUSEL    -->
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     {{-- Hero Text --}}
-    <div class="absolute z-50 w-full h-full flex flex-col justify-center items-center text-white gap-4">
+    <div class="absolute z-50 w-full h-full flex flex-col justify-center items-center text-white gap-4 p-6">
         <div class="flex w-full">
             <div class="hidden bg-red-600 md:flex w-full max-w-40"></div>
-            <div class="font-bold text-lg md:text-4xl text-center w-full flex flex-col">
+            <div class="font-bold md:text-2xl lg:text-4xl text-center w-full flex flex-col">
                 <h1>BANTU PENUHI PROTEINMU SETIAP HARI MASYARAKAT</h1>
                 <h1>SEHAT DAN CERDAS BEBAS STUNTING</h1>
             </div>
             <div class="hidden bg-red-600 md:flex w-full max-w-40"></div>
         </div>
-        <div class="bg-gray-50 bg-opacity-20 rounded-xl p-4 text-lg md:text-xl font-semibold text-center">
+        <div
+            class="bg-gray-50 bg-opacity-20 rounded-xl p-2 md:p-4 text-xs md:text-base lg:text-xl mx-8 md:m-0 font-semibold text-center">
             <h2>Belanja Kebutuhan Ayam dan Telur Untuk Usaha dan Konsumsi Harian Semakin Mudah dan Hemat</h2>
         </div>
-        <a href="#map-container" class="bg-yellow-400 shadow-md shadow-yellow-500 py-4 px-12 rounded-lg text-lg">Selengkapnya</a>
+        <a href="#map-container"
+            class="hidden md:block bg-yellow-400 shadow-md shadow-yellow-500 md:py-4 md:px-12 rounded-lg md:text-lg">Selengkapnya</a>
     </div>
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden md:h-[600px] blur-sm brightness-75">
+    <div class="relative h-64 overflow-hidden md:h-[600px] brightness-75">
         <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="{{ asset('storage/banner/' . $sectionBanner->banner1) }}"
