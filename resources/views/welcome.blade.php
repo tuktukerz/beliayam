@@ -27,7 +27,7 @@
 <!-- CARROUSEL    -->
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     {{-- Hero Text --}}
-    <div class="absolute z-50 w-full h-full flex flex-col justify-center items-center text-white gap-4 p-6">
+    <div class="absolute z-50 w-full h-full flex flex-col justify-center items-center text-white gap-4 md:p-6">
         <div class="flex w-full">
             <div class="hidden bg-red-600 md:flex w-full max-w-40"></div>
             <div class="font-bold md:text-2xl lg:text-4xl text-center w-full flex flex-col">
@@ -41,7 +41,7 @@
             <h2>Belanja Kebutuhan Ayam dan Telur Untuk Usaha dan Konsumsi Harian Semakin Mudah dan Hemat</h2>
         </div>
         <a href="#map-container"
-            class="hidden md:block bg-yellow-400 shadow-md shadow-yellow-500 md:py-4 md:px-12 rounded-lg md:text-lg">Selengkapnya</a>
+            class="hidden md:block bg-yellow-300 shadow-md shadow-yellow-400 md:py-4 md:px-12 rounded-lg md:text-lg font-bold">Selengkapnya</a>
     </div>
     <!-- Carousel wrapper -->
     <div class="relative h-64 overflow-hidden md:h-[600px] brightness-75">
@@ -97,13 +97,14 @@
     </button>
 </div>
 
-<section class="xl:px-32 mt-6 lg:mt-10">
+
+<section class="xl:px-32 mt-6 lg:mt-10 mb-6 md:mb-0">
     <h1 class="text-red-600 font-bold text-lg md:text-4xl text-center">UPDATE HARGA</h1>
     <h2 class="text-gray-600 text-sm md:text-lg text-center">Ayam dan Telur Tingkat Peternak</h2>
     <div class="w-full h-[400px] xl:h-screen" id="map-container"></div>
 </section>
 
-<section class="w-full justify-center mb-24 py-6 hidden md:flex flex-wrap">
+<section class="w-full justify-center md:mb-24 py-6 hidden md:flex flex-wrap">
     @for ($i = 0; $i < count($mapSeriesSorted); $i++)
         @php
             $formattedNumber = number_format($mapSeriesSorted[$i]['data'][0]['value']);
@@ -130,31 +131,73 @@
     @endfor
 </section>
 
+<section class="flex justify-center items-center mb-24 mx-6">
+    <div class="bg-red-700 flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-6 flex-col md:flex-row">
+        @for ($i = 1; $i <= 3; $i++)
+            @php
+                $filepath = 'images/value' . $i . '.png';
+            @endphp
+            <div class="max-w-96 text-white m-6 text-center flex flex-col justify-center items-center group">
+                <img src="{{ asset($filepath) }}" class="max-w-40 md:max-w-full object-contain group-hover:scale-105 transition" alt="product value" />
+                <h1 class="text-3xl font-black">VALUE {{$i}}</h1>
+                <h2 class="text-sm max-w-72">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi illum enim quo fugiat velit, dolor</h2>
+            </div>
+        @endfor
+    </div>
+</section>
 
+<section class="flex flex-col justify-center items-center mb-24">
+    <h1 class="text-gray-500 text-2xl italic text-center">Didukung Pemerintah dan Organisasi Perunggasan Melalui :</h1>
+    <div class="flex flex-wrap p-6 md:p-16 m-6 bg-gray-200 justify-center items-center gap-12 rounded-3xl lg:rounded-[4rem] max-w-7xl">
+        @for ($i = 1; $i <= 6; $i++)
+        @php
+            $filepath = 'images/support' . $i . '.png';
+        @endphp
+        <img src="{{ asset($filepath) }}" class="max-h-28 object-contain hover:scale-105 transition" alt="Supporter" />
+        @endfor
+    </div>
+</section>
 
-<footer class="bg-white dark:bg-gray-900">
+<section class=" flex flex-col-reverse md:flex-row justify-center items-center mb-24 bg-no-repeat bg-right-bottom bg-none" style="background-image: url('{{ asset('images/background.png')}}');">
+    <div class="lg:mr-16 flex flex-col gap-6 max-w-xl bg-white p-12 rounded-xl">
+        <h1 class="font-bold text-3xl lg:text-5xl italic md:mb-6">Sudah makan <span class="text-red-600">ayam dan telur</span> hari ini ?</h1>
+        <h2 class="text-xl text-gray-600 lg:text-3xl italic">Yuk, hidup sehat dengan Protein hemat. Siap bantu untuk memenuhi kebutuhan Resto dan Café kamu !!</h2>
+        <a href="#"
+        class="w-fit text-white text-center bg-yellow-300 shadow-md shadow-yellow-400 p-4 md:py-4 md:px-12 rounded-lg md:text-lg font-bold md:mb-6">Info Produk & Layanan</a>
+        <p class="font-base text-lg text-gray-600 md:text-2xl italic">Download aplikasinya sekarang</p>
+        <div class="flex flex-wrap gap-6">
+            <img src="{{ asset('images/google.png') }}" class="max-h-16 object-contain transition" alt="Google Play Download Badge" />
+            <img src="{{ asset('images/appstore.png') }}" class="max-h-16 object-contain transition" alt="App Store Download Badge" />
+        </div>
+    </div>
+    <div>
+        <img src="{{ asset('images/cooking.png') }}" class="object-contain transition" alt="Cooking Image" />
+    </div>
+</section>
+
+<footer class="bg-gray-800">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="https://flowbite.com/" class="flex items-center">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="{{ asset('images/logo-w.png') }}" class="h-12" alt="Beli Ayam Logo" />
                 </a>
             </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div class="flex gap-8 sm:gap-16 flex-wrap">
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Services</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
+                            <a href="#" class="hover:underline">Links</a>
                         </li>
                         <li>
-                            <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
+                            <a href="#" class="hover:underline">Links</a>
                         </li>
                     </ul>
                 </div>
+                <div class="hidden md:block w-[1px] h-full bg-yellow-300"></div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Useful Links</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
                             <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
@@ -164,8 +207,9 @@
                         </li>
                     </ul>
                 </div>
+                <div class="hidden md:block w-[1px] h-full bg-yellow-300"></div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Contacts</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>
@@ -174,6 +218,8 @@
                             <a href="#" class="hover:underline">Terms &amp; Conditions</a>
                         </li>
                     </ul>
+                    <h2 class="mb-6 mt-6 text-sm font-semibold uppercase text-white">Follow Us</h2>
+                    <x-Socials />
                 </div>
             </div>
         </div>
@@ -182,25 +228,6 @@
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
                     href="https://flowbite.com/" class="hover:underline">Jualayam.com™</a>. All Rights Reserved.
             </span>
-            <div class="flex mt-4 sm:justify-center sm:mt-0">
-                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        viewBox="0 0 8 19">
-                        <path fill-rule="evenodd"
-                            d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="sr-only">Facebook page</span>
-                </a>
-                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        viewBox="0 0 21 16">
-                        <path
-                            d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
-                    </svg>
-                    <span class="sr-only">Discord community</span>
-                </a>
-            </div>
         </div>
     </div>
 </footer>
