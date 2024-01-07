@@ -12,13 +12,14 @@ return new class extends Migration {
     {
         Schema::create('pricings', function (Blueprint $table) {
             $table->id();
-            $table->string('p_sumatera');
-            $table->string('p_jabodetabek');
-            $table->string('p_jateng');
-            $table->string('p_jatim');
-            $table->string('p_kalimantan');
-            $table->string('p_sulawesi');
-            $table->string('p_papua');
+            $table->bigInteger('p_sumatera');
+            $table->bigInteger('p_jabodetabek');
+            $table->bigInteger('p_jateng');
+            $table->bigInteger('p_jatim');
+            $table->bigInteger('p_nusabali');
+            $table->bigInteger('p_kalimantan');
+            $table->bigInteger('p_sulawesi');
+            $table->bigInteger('p_papua');
             $table->timestamps();
         });
     }

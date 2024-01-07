@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Sumatera",
+    "alias": "p_sumatera",
+    "data": [
+      "id-su",
+      "id-si",
+      "id-sb",
+      "id-sl",
+      "id-1024",
+      "id-ac",
+      "id-be",
+      "id-kr",
+      "id-ri",
+      "id-ja",
+      "id-bb"
+    ],
+    "color": "#5BC0EB"
+  },
+  {
+    "name": "Kalimantan",
+    "alias": "p_kalimantan",
+    "data": [
+      "id-kb",
+      "id-ks",
+      "id-ku",
+      "id-ki",
+      "id-kt"
+    ],
+    "color": "#03B5AA"
+  },
+  {
+    "name": "Jabodetabek",
+    "alias": "p_jabodetabek",
+    "data": [
+      "id-jr",
+      "id-jk",
+      "id-bt"
+    ],
+    "color": "#F9DB6D"
+  },
+  {
+    "name": "Jawa Tengah",
+    "alias": "p_jateng",
+    "data": [
+      "id-jt",
+      "id-yo"
+    ],
+    "color": "#957FEF"
+  },
+  {
+    "name": "Jawa Timur",
+    "alias": "p_jatim",
+    "data": [
+      "id-ji"
+    ],
+    "color": "#36827F"
+  },
+  {
+    "name": "Nusa Tenggara & Bali",
+    "alias": "p_nusabali",
+    "data": [
+      "id-ba",
+      "id-nt",
+      "id-nb"
+    ],
+    "color": "#48E9BC"
+  },
+  {
+    "name": "Sulawesi",
+    "alias": "p_sulawesi",
+    "data": [
+      "id-se",
+      "id-sw",
+      "id-sg",
+      "id-st",
+      "id-sr",
+      "id-go"
+    ],
+    "color": "#FF331F"
+  },
+  {
+    "name": "Papua & Maluku",
+    "alias": "p_papua",
+    "data": [
+      "id-ma",
+      "id-ib",
+      "id-pa"
+    ],
+    "color": "#F19A3E"
+  }
+]

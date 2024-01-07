@@ -15,6 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            PricingsSeeder::class,
+            SectionBannerSeeder::class
+        ]);
+
         User::create([
             'name' => 'admin',
             'email' => 'admin@mail.com',
