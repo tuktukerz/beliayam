@@ -27,7 +27,7 @@ Auth::routes([
 ]);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/admin/site-identity', SiteIdentityController::class);
     Route::resource('/admin/banner', SectionBannerController::class);
     Route::resource('/admin/pricing', PricingController::class);

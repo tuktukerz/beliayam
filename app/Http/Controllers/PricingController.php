@@ -56,7 +56,7 @@ class PricingController extends Controller
     {
         $pricing = Pricing::findOrFail($id);
         $pricing->update($request->all());
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 
     /**

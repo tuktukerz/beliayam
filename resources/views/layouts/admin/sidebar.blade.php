@@ -5,7 +5,7 @@
             <div class="sidebar-header position-relative">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('dist') }}/assets/images/logo/logo1.png"
+                        <a href="{{ route('dashboard') }}"><img src="{{ asset('dist') }}/assets/images/logo/logo1.png"
                                                            alt="Logo" srcset=""></a>
                     </div>
                     <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -46,7 +46,7 @@
                 <ul class="menu">
                     <li class="sidebar-title">Menu</li>
                     <li class="sidebar-item @yield('dashboard')">
-                        <a href="{{ route('home') }}" class='sidebar-link'>
+                        <a href="{{ route('dashboard') }}" class='sidebar-link'>
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
                         </a>

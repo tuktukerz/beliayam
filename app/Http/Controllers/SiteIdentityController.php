@@ -69,7 +69,7 @@ class SiteIdentityController extends Controller
 
         $request['logo'] = $imageName;
         $siteIdentity->update($request->except('file'));
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 
     /**
