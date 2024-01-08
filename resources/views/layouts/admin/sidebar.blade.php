@@ -51,7 +51,6 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
-
                     <li class="sidebar-item @yield('mrchnt')">
                         <a href="{{ route('site-identity.show', '1') }}" class='sidebar-link'>
                             <i class="bi bi-house-door-fill"></i>
@@ -60,14 +59,26 @@
                     </li>
                     <li class="sidebar-item @yield('banner')">
                         <a href="{{ route('banner.show', '1') }}" class='sidebar-link'>
-                            <i class="bi bi-house-door-fill"></i>
+                            <i class="bi bi-card-image"></i>
                             <span>Banner</span>
                         </a>
                     </li>
                     <li class="sidebar-item @yield('pricing')">
                         <a href="{{ route('pricing.show', '1') }}" class='sidebar-link'>
-                            <i class="bi bi-house-door-fill"></i>
+                            <i class="bi bi-cash-coin"></i>
                             <span>Pricing</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item @yield('contentView')">
+                        <a href="{{ route('content.index') }}" class='sidebar-link'>
+                            <i class="bi bi-file-code-fill"></i>
+                            <span>Content</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{{ route('welcome') }}" class='sidebar-link'>
+                            <i class="bi bi-sign-turn-left"></i>
+                            <span>Welcome Page</span>
                         </a>
                     </li>
                 </ul>

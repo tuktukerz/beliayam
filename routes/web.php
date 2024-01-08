@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PricingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SectionBannerController;
 use App\Http\Controllers\SiteIdentityController;
 use App\Http\Controllers\WelcomeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +21,7 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
-Route::get('/', [WelcomeController::class, 'show']);
+Route::get('/', [WelcomeController::class, 'show'])->name('welcome');
 
 Auth::routes([
     'register' => false, // Registration Routes...
@@ -31,4 +34,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/site-identity', SiteIdentityController::class);
     Route::resource('/admin/banner', SectionBannerController::class);
     Route::resource('/admin/pricing', PricingController::class);
+    Route::resource('/admin/content', ContentController::class);
 });

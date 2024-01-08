@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use App\Models\Pricing;
 use App\Models\SectionBanner;
 use Illuminate\Http\Request;
@@ -13,6 +14,10 @@ class WelcomeController extends Controller
     {
         $pricings = Pricing::latest()->first();
         $series = json_decode(file_get_contents(public_path('json/mapKey.json')), true);
+        $values = Content::where('type', 'value')->get();
+        $supports = Content::where('type', 'support')->get();
+        $howto = Content::where('type', 'howto')->latest()->first();
+        $customers = Content::where('type', 'customer')->get();
 
         $mapSeriesSorted = [];
 
@@ -39,6 +44,6 @@ class WelcomeController extends Controller
 
         $sectionBanner = SectionBanner::latest()
             ->first();
-        return view('welcome', compact('sectionBanner', 'mapSeriesSorted'));
+        return view('welcome', compact('sectionBanner', 'mapSeriesSorted', 'values', 'supports', 'howto', 'customers'));
     }
 }

@@ -65,13 +65,13 @@ class SectionBannerController extends Controller
                 // Generate a unique name for the image
                 $imageName = $bannerFieldName . '.' . $request->file($bannerFieldName)->extension();
 
-                // Store the image in the 'public/banner' directory
-                $request->file($bannerFieldName)->storeAs('public/banner', $imageName);
-
                 // Delete the old banner if it exists
                 if ($sectionBanner->$bannerFieldName) {
                     Storage::delete('public/banner/' . $sectionBanner->$bannerFieldName);
                 }
+
+                // Store the image in the 'public/banner' directory
+                $request->file($bannerFieldName)->storeAs('public/banner', $imageName);
 
                 // Update the current banner field in the SectionBanner model
                 $sectionBanner->update([$bannerFieldName => $imageName]);
@@ -81,7 +81,7 @@ class SectionBannerController extends Controller
         // Update other fields excluding 'banner1', 'banner2', 'banner3'
         $sectionBanner->update($request->except(['banner1', 'banner2', 'banner3']));
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 
     /**

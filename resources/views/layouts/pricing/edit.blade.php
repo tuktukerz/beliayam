@@ -67,6 +67,13 @@
                                         </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
+                                                <label>Nusa Tenggara & Bali</label>
+                                                <input type="text" class="form-control" name="p_nusabali"
+                                                       placeholder="Longitude" value="{{ $pricing->p_nusabali }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
                                                 <label>Sulawesi</label>
                                                 <input type="text" class="form-control" name="p_sulawesi"
                                                        placeholder="Longitude" value="{{ $pricing->p_sulawesi }}">
