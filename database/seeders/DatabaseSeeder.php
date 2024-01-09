@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PricingsSeeder::class,
             SectionBannerSeeder::class,
-            ContentSeeder::class
+            ContentSeeder::class,
+            SiteIdentitiesSeeder::class
         ]);
 
         User::create([

@@ -12,11 +12,19 @@ return new class extends Migration {
     {
         Schema::create('site_identities', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('description');
             $table->string('address');
             $table->string('phone');
             $table->string('email');
-            $table->string('logo');
+            $table->string('google_play');
+            $table->string('app_store');
+            $table->string('instagram');
+            $table->string('twitter');
+            $table->string('google_map');
+            $table->string('youtube');
+            $table->string('logo_light');
+            $table->string('logo_black');
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class Socials extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public string $twitter, public string $instagram, public string $youtube)
     {
         //
     }

@@ -35,40 +35,48 @@ class SiteIdentityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(SiteIdentity $siteIdentity)
     {
-        $siteIdentity = SiteIdentity::findOrFail($id);
         return view('layouts.siteidentity.index', compact('siteIdentity'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(SiteIdentity $siteIdentity)
     {
-        $siteIdentity = SiteIdentity::findOrFail($id);
         return view('layouts.siteidentity.edit', compact('siteIdentity'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, SiteIdentity $siteIdentity)
     {
-        $siteIdentity = SiteIdentity::findOrFail($id);
-        $imageName = '';
-        if ($request->hasFile('file')) {
-            $imageName = 'logo' . "." . $request->file->extension();
-            $request->file->storeAs('public/logo', $imageName);
-            if ($siteIdentity->logo) {
-                Storage::delete('public/merchents/' . $siteIdentity->logo);
+        if ($request->hasFile('logoBlack')) {
+            if ($siteIdentity->logoBlack) {
+                Storage::delete('public/logo/' . $siteIdentity->logo);
             }
-        } else {
-            $imageName = $siteIdentity->logo;
+
+            $imageName = 'logo_black' . "." . $request->logoBlack->extension();
+            $request->file('logoBlack')->storeAs('public/logo', $imageName);
+
+            $request['logo_black'] = $imageName;
         }
 
-        $request['logo'] = $imageName;
-        $siteIdentity->update($request->except('file'));
+        if ($request->hasFile('logoLight')) {
+            if ($siteIdentity->logoLight) {
+                Storage::delete('public/logo/' . $siteIdentity->logo);
+            }
+
+            $imageName = 'logo_light' . "." . $request->logoLight->extension();
+            $request->file('logoLight')->storeAs('public/logo', $imageName);
+
+            $request['logo_light'] = $imageName;
+        }
+
+        $siteIdentity->update($request->except(['logoBlack', 'logoLight']));
+
         return redirect()->route('dashboard');
     }
 
