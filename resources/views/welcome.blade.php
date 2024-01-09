@@ -233,7 +233,7 @@
                                         @if ($customer->image)
                                             <img src="{{ asset('storage/customer/' . $customer->image) }}"
                                                 alt="Customer"
-                                                class="h-12 xl:h-full max-h-32 rounded-full object-cover">
+                                                class="h-12 w-12 xl:h-24 xl:w-24 max-h-32 rounded-full object-contain">
                                         @endif
                                         <div>
                                             <h3 class="font-medium text-lg xl:text-3xl">{{ $customer->title }}</h3>
