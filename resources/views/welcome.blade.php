@@ -230,8 +230,11 @@
 
                                     <div
                                         class="flex justify-start items-center gap-6 {{ $border }} border-gray-300 p-4 lg:p-12">
-                                        <img src="{{ asset('storage/customer/' . $customer->image) }}" alt="Customer"
-                                            class="h-12 xl:h-full max-h-32 rounded-full object-cover">
+                                        @if ($customer->image)
+                                            <img src="{{ asset('storage/customer/' . $customer->image) }}"
+                                                alt="Customer"
+                                                class="h-12 xl:h-full max-h-32 rounded-full object-cover">
+                                        @endif
                                         <div>
                                             <h3 class="font-medium text-lg xl:text-3xl">{{ $customer->title }}</h3>
                                             <p class="text-xs lg:text-base">{{ $customer->description }}</p>

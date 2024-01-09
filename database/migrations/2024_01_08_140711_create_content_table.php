@@ -16,7 +16,7 @@ return new class extends Migration
             $table->enum('type', ['value', 'support', 'customer', 'howto']);
             $table->string('title')->nullable();
             $table->string('description')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
