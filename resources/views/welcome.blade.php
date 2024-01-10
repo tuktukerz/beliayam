@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jual Ayam.com</title>
+    <title>beliayam.com</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -294,7 +294,8 @@
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{{ asset('storage/logo/' . $identities->logo_light) }}" class="h-12" alt="Beli Ayam Logo" />
+                    <img src="{{ asset('storage/logo/' . $identities->logo_light) }}" class="h-12"
+                        alt="Beli Ayam Logo" />
                 </a>
             </div>
             <div class="flex gap-8 sm:gap-16 flex-wrap">
@@ -350,7 +351,7 @@
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
-                    href="https://flowbite.com/" class="hover:underline">Jualayam.com™</a>. All Rights Reserved.
+                    href="https://flowbite.com/" class="hover:underline">beliayam.com™</a>. All Rights Reserved.
             </span>
         </div>
     </div>
