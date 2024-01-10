@@ -10,6 +10,34 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
+<div id="modal-ad" tabindex="-1" aria-hidden="true"
+    class="fixed left-0 right-0 top-0 z-[99] hidden h-[calc(100%-1rem)] max-h-full w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0">
+    <div class="relative max-h-full w-full max-w-2xl">
+        <!-- Modal content -->
+        <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between rounded-t border-b p-5 dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white lg:text-2xl">
+                    May Interest You!
+                </h3>
+                <button type="button" data-modal-hide="modal-ad"
+                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="space-y-6 p-6" id="ads">
+                <x-smart-ad-component slug="ads"/>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class='py-2 bg-gray-800 text-white text-right px-10 sm:flex items-center justify-center sm:justify-between'>
     <x-Socials :youtube="$identities->youtube" :instagram="$identities->instagram" :twitter="$identities->twitter" />
     <div class="flex gap-2">
@@ -22,12 +50,12 @@
     </div>
 </section>
 
-<x-Navbar :logo="$identities->logo_black"/>
+<x-Navbar :logo="$identities->logo_black" />
 
 <!-- CARROUSEL    -->
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     {{-- Hero Text --}}
-    <div class="absolute z-50 w-full h-full flex flex-col justify-center items-center text-white gap-4 md:p-6">
+    <div class="absolute z-40 w-full h-full flex flex-col justify-center items-center text-white gap-4 md:p-6">
         <div class="flex w-full">
             <div class="hidden bg-red-600 md:flex w-full max-w-40"></div>
             <div class="font-bold md:text-2xl lg:text-4xl text-center w-full flex flex-col justify-center items-center">
@@ -378,10 +406,13 @@
         </div>
     </div>
 </footer>
+
 {{-- Map Chart --}}
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
 <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
 <script src="{{ asset('js/highcharts.js') }}"></script>
+<script src="{{ asset('js/modal.js') }}"></script>
+
 <script>
     const result = @json($mapSeriesSorted);
 

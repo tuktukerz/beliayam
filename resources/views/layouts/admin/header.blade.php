@@ -19,20 +19,7 @@
     <link rel="stylesheet" href="{{ asset('dist') }}/assets/css/pages/simple-datatables.css">
     <link rel="stylesheet" href="{{ asset('dist') }}/assets/extensions/flatpickr/flatpickr.min.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-
-    <style>
-        #map {
-            width: 100%;
-            height: 400px;
-            z-index: 0;
-        }
-    </style>
-    <!-- END MAPS -->
+    <script src="{{ asset('vendor/smart-ads/js/smart-banner.min.js') }}"></script>
 
 
 </head>
