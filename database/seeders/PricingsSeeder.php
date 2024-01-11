@@ -25,7 +25,7 @@ class PricingsSeeder extends Seeder
             ["province" => "Bengkulu", "island" => "Sumatera", "price" => rand(1000000, 9999999), "hc_key" => "id-be", "color" => "#5BC0EB", 'created_at' => now(), 'updated_at' => now()],
             ["province" => "Kepulauan Riau", "island" => "Sumatera", "price" => rand(1000000, 9999999), "hc_key" => "id-kr", "color" => "#5BC0EB", 'created_at' => now(), 'updated_at' => now()],
             ["province" => "Riau", "island" => "Sumatera", "price" => rand(1000000, 9999999), "hc_key" => "id-ri", "color" => "#5BC0EB", 'created_at' => now(), 'updated_at' => now()],
-            ["province" => "Jambi Riau", "island" => "Sumatera", "price" => rand(1000000, 9999999), "hc_key" => "id-ja", "color" => "#5BC0EB", 'created_at' => now(), 'updated_at' => now()],
+            ["province" => "Jambi", "island" => "Sumatera", "price" => rand(1000000, 9999999), "hc_key" => "id-ja", "color" => "#5BC0EB", 'created_at' => now(), 'updated_at' => now()],
             ["province" => "Kepulauan Bangka Belitung", "island" => "Sumatera", "price" => rand(1000000, 9999999), "hc_key" => "id-bb", "color" => "#5BC0EB", 'created_at' => now(), 'updated_at' => now()],
 
             // Kalimantan
