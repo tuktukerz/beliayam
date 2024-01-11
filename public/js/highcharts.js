@@ -8,6 +8,7 @@ const createMap = async (result) => {
         chart: {
             map: topology,
             spacingBottom: 20,
+            plotBackgroundImage: '../images/logo-transparent.png'
         },
 
         title: {
@@ -21,8 +22,17 @@ const createMap = async (result) => {
             },
         },
 
+        tooltip: {
+            pointFormatter: function () {
+               return `${this.name}: <b>${formatRupiah(this.value)}</b>`
+            },
+            style: {
+                fontSize: '1.2rem'
+            }
+        },   
+
         legend: {
-            enabled: true,
+            enabled: false,
             labelFormatter: function () {
                 return `${this.name} = <b>${formatRupiah(
                     this.data[0].value
@@ -41,10 +51,6 @@ const createMap = async (result) => {
             map: {
                 allAreas: false,
                 joinBy: ["hc-key", "code"],
-                // tooltip: {
-                //     headerFormat: "",
-                //     pointFormat: "{series.name}: <b>{point.name}</b>",
-                // },
                 dataLabels: {
                     crop: true,
                     format: "{y}",
@@ -62,10 +68,16 @@ const createMap = async (result) => {
             },
         },
 
-        series: result.map((island, index) => {
+        series: Object.entries(result).map(([key, value]) => {
             return {
-                ...island,
-                name: `${index + 1}. ${island.name}`,
+                ...value,
+                borderColor: 'black',
+                borderWidth: 1,
+                states: {
+                    hover: {
+                        borderWidth: 4
+                    }
+                },
             };
         }),
     });

@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // only showing on the first time the website has opened
   const isFirstTime = sessionStorage.getItem('modal') == null;
-  console.log(isFirstTime)
   
   // set the modal menu element
   const $targetEl = document.getElementById("modal-ad");

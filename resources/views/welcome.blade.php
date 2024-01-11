@@ -32,7 +32,7 @@
             </div>
             <!-- Modal body -->
             <div class="space-y-6 p-6" id="ads">
-                <x-smart-ad-component slug="ads"/>
+                <x-smart-ad-component slug="ads" />
             </div>
         </div>
     </div>
@@ -132,30 +132,30 @@
 </section>
 
 <section class="w-full justify-center md:mb-24 py-6 hidden md:flex flex-wrap">
-    @for ($i = 0; $i < count($mapSeriesSorted); $i++)
+    @foreach ($priceTotalByIsland as $total) 
         @php
-            $formattedNumber = number_format($mapSeriesSorted[$i]['data'][0]['value']);
+            $formattedNumber = number_format($total['total_price']);
 
             // Add the Rupiah symbol
             $formattedNumber = 'Rp ' . $formattedNumber;
         @endphp
         <div class="flex justify-center items-center flex-col min-w-40">
             <div
-                class="border-[{{ $mapSeriesSorted[$i]['color'] }}] border-4 h-12 w-12 rounded-full flex justify-center items-center relative">
-                <p class="text-[{{ $mapSeriesSorted[$i]['color'] }}] text-lg font-bold">{{ $i + 1 }}</p>
+                class="border-[{{ $total['color'] }}] border-4 h-12 w-12 rounded-full flex justify-center items-center relative">
+                <p class="text-[{{ $total['color'] }}] text-lg font-bold">{{ $loop->iteration }}</p>
                 <div
-                    class="before:content-['▼'] absolute -bottom-1 h-2 text-[{{ $mapSeriesSorted[$i]['color'] }}] text-xl scale-y-50">
+                    class="before:content-['▼'] absolute -bottom-1 h-2 text-[{{ $total['color'] }}] text-xl scale-y-50">
                 </div>
             </div>
             <div class="w-full relative flex justify-center items-center my-4">
-                <div class="h-2 w-2 bg-[{{ $mapSeriesSorted[$i]['color'] }}] absolute rounded-full z-50"></div>
+                <div class="h-2 w-2 bg-[{{ $total['color'] }}] absolute rounded-full z-50"></div>
                 <div class="border border-gray-400 border-dashed w-full absolute"></div>
             </div>
-            <h4 class="font-light text-lg italic text-[{{ $mapSeriesSorted[$i]['color'] }}]">
-                {{ $mapSeriesSorted[$i]['name'] }}</h4>
+            <h4 class="font-light text-lg italic text-[{{ $total['color'] }}]">
+                {{ $total['island'] }}</h4>
             <h5 class="font-bold text-lg">{{ $formattedNumber }}</h5>
         </div>
-    @endfor
+    @endforeach
 </section>
 
 @if (count($values) > 0)
@@ -414,9 +414,9 @@
 <script src="{{ asset('js/modal.js') }}"></script>
 
 <script>
-    const result = @json($mapSeriesSorted);
+    const result = @json($groupedPricings);
 
-    createMap(result)
+    createMap(result);
 </script>
 
 </html>
