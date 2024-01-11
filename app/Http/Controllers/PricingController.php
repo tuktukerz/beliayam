@@ -12,7 +12,9 @@ class PricingController extends Controller
      */
     public function index()
     {
-        //
+        $pricings = Pricing::get();
+
+        return view('layouts.pricing.index', compact('pricings'));
     }
 
     /**
@@ -20,7 +22,7 @@ class PricingController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -43,27 +45,27 @@ class PricingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Pricing $pricing)
     {
-        $pricing = Pricing::findOrFail($id);
         return view('layouts.pricing.edit', compact('pricing'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Pricing $pricing)
     {
-        $pricing = Pricing::findOrFail($id);
         $pricing->update($request->all());
-        return redirect()->route('dashboard');
+        return redirect()->route('pricing.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Pricing $pricing)
     {
-        //
+        $pricing->delete();
+
+        return redirect()->route('pricing.index');
     }
 }
