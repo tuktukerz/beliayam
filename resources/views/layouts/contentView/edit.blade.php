@@ -72,6 +72,9 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-6 col-12">
+                                            <img src="{{ asset('storage/' . $content->type . '/' . $content->image) }}" >
+                                        </div>
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group mb-3">
                                                 <label>Image</label>
                                                 <input class="form-control form-control" type="file" name="imageFile"
