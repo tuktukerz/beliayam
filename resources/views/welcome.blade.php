@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<section class='py-2 bg-gray-800 text-white text-right px-10 sm:flex items-center justify-center sm:justify-between'>
+<section class='py-2 bg-gray-800 text-white text-right px-10 flex items-center justify-center sm:justify-between gap-4'>
     <x-Socials :youtube="$identities->youtube" :instagram="$identities->instagram" :twitter="$identities->twitter" />
     <div class="flex gap-2">
         <div class="group flex items-center gap-2 justify-center">
@@ -132,7 +132,7 @@
 </section>
 
 <section class="w-full justify-center md:mb-24 py-6 hidden md:flex flex-wrap">
-    @foreach ($priceTotalByIsland as $total) 
+    @foreach ($priceTotalByIsland as $total)
         @php
             $formattedNumber = number_format($total['total_price']);
 
@@ -160,15 +160,16 @@
 
 @if (count($values) > 0)
     <section class="flex justify-center items-center mb-24 mx-6">
-        <div
-            class="bg-red-700 flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-6 flex-col md:flex-row">
+        <div class="flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-8 flex-col md:flex-row">
             @foreach ($values as $value)
-                <div class="max-w-96 text-white m-6 text-center flex flex-col justify-start items-center group">
+                <div
+                    class="max-w-96 text-black text-center flex flex-col justify-start items-center group shadow-xl p-6 rounded-xl">
                     <img src="{{ asset('storage/value/' . $value->image) }}"
-                        class="max-h-80 md:max-w-full object-contain group-hover:scale-105 transition"
+                        class="max-h-60 md:max-w-full object-contain group-hover:scale-105 transition rounded-xl"
                         alt="product value" />
-                    <h1 class="text-3xl font-black">{{ $value->title }}</h1>
-                    <h2 class="text-sm max-w-72">{{ $value->description }}</h2>
+                    <div class="bg-gray-200 h-[0.5px] w-full my-6"></div>
+                    <h1 class="text-3xl font-black mb-2 text-red-600">{{ $value->title }}</h1>
+                    <h2 class="text-sm max-w-72 text-gray-600">{{ $value->description }}</h2>
                 </div>
             @endforeach
         </div>
@@ -180,10 +181,10 @@
         <h1 class="text-gray-500 text-2xl italic text-center">Didukung Pemerintah dan Organisasi Perunggasan Melalui :
         </h1>
         <div
-            class="flex flex-wrap p-6 md:p-16 m-6 bg-gray-200 justify-center items-center gap-12 rounded-3xl lg:rounded-[4rem] max-w-7xl">
+            class="flex flex-wrap p-6 md:p-16 m-6 bg-gray-100 justify-center items-center gap-12 rounded-xl max-w-7xl border-2">
             @foreach ($supports as $support)
                 <img src="{{ asset('storage/support/' . $support->image) }}"
-                    class="max-h-28 object-contain hover:scale-105 transition" alt="Supporter" />
+                    class="max-h-28 max-w-28 object-contain hover:scale-105 transition" alt="Supporter" />
             @endforeach
         </div>
     </section>
@@ -234,7 +235,7 @@
     <section class="bg-gray-200 py-8">
         <h1 class="font-bold text-2xl md:text-4xl text-center">HAPPY <span class="text-red-600">CUSTOMER</span></h1>
         <h2 class="text-gray-600 text-sm md:text-lg text-center">More Than {{ count($customers) }}+ UMKM</h2>
-        <div id="default-carousel" class="relative w-full" data-carousel="static">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative overflow-hidden h-[700px] sm:h-[600px]">
                 {{-- divide by forth item --}}
@@ -321,7 +322,7 @@
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse mb-4">
                     <img src="{{ asset('storage/logo/' . $identities->logo_light) }}" class="h-12"
                         alt="Beli Ayam Logo" />
                 </a>
@@ -330,25 +331,16 @@
             </div>
             <div class="flex gap-8 sm:gap-16 flex-wrap">
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Services</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Links</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Links</a>
+                            <a href="#" class="hover:underline ">Home</a>
                         </li>
-                        <li>
-                            <a href="#" class="hover:underline">Links</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="hidden md:block w-[1px] h-full bg-yellow-300"></div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Useful Links</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
+                            <a href="#" class="hover:underline">Products</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                            <a href="#" class="hover:underline">Certificates</a>
                         </li>
                     </ul>
                 </div>
