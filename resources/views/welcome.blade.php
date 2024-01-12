@@ -325,6 +325,8 @@
                     <img src="{{ asset('storage/logo/' . $identities->logo_light) }}" class="h-12"
                         alt="Beli Ayam Logo" />
                 </a>
+                <h1 class="font-bold text-gray-300">beliayam.com</h1>
+                <p class="text-gray-400 text-sm max-w-md text-justify">{{ $identities->footer_desc }}</p>
             </div>
             <div class="flex gap-8 sm:gap-16 flex-wrap">
                 <div>

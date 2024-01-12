@@ -23,6 +23,7 @@ return new class extends Migration {
             $table->string('twitter');
             $table->string('google_map');
             $table->string('youtube');
+            $table->text('footer_desc');
             $table->string('logo_light');
             $table->string('logo_black');
             $table->timestamps();
