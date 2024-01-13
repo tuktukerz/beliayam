@@ -5,12 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jual Ayam.com</title>
+    <title>beliayam.com</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<section class='py-2 bg-gray-800 text-white text-right px-10 sm:flex items-center justify-center sm:justify-between'>
+<div id="modal-ad" tabindex="-1" aria-hidden="true"
+    class="fixed left-0 right-0 top-0 z-[99] hidden h-[calc(100%-1rem)] max-h-full w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0">
+    <div class="relative max-h-full w-full max-w-2xl">
+        <!-- Modal content -->
+        <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between rounded-t border-b p-5 dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white lg:text-2xl">
+                    May Interest You!
+                </h3>
+                <button type="button" data-modal-hide="modal-ad"
+                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="space-y-6 p-6" id="ads">
+                <x-smart-ad-component slug="ads" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class='py-2 bg-gray-800 text-white text-right px-10 flex items-center justify-center sm:justify-between gap-4'>
     <x-Socials :youtube="$identities->youtube" :instagram="$identities->instagram" :twitter="$identities->twitter" />
     <div class="flex gap-2">
         <div class="group flex items-center gap-2 justify-center">
@@ -22,12 +50,12 @@
     </div>
 </section>
 
-<x-Navbar :logo="$identities->logo_black"/>
+<x-Navbar :logo="$identities->logo_black" />
 
 <!-- CARROUSEL    -->
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     {{-- Hero Text --}}
-    <div class="absolute z-50 w-full h-full flex flex-col justify-center items-center text-white gap-4 md:p-6">
+    <div class="absolute z-40 w-full h-full flex flex-col justify-center items-center text-white gap-4 md:p-6">
         <div class="flex w-full">
             <div class="hidden bg-red-600 md:flex w-full max-w-40"></div>
             <div class="font-bold md:text-2xl lg:text-4xl text-center w-full flex flex-col justify-center items-center">
@@ -104,43 +132,44 @@
 </section>
 
 <section class="w-full justify-center md:mb-24 py-6 hidden md:flex flex-wrap">
-    @for ($i = 0; $i < count($mapSeriesSorted); $i++)
+    @foreach ($priceTotalByIsland as $total)
         @php
-            $formattedNumber = number_format($mapSeriesSorted[$i]['data'][0]['value']);
+            $formattedNumber = number_format($total['total_price']);
 
             // Add the Rupiah symbol
             $formattedNumber = 'Rp ' . $formattedNumber;
         @endphp
         <div class="flex justify-center items-center flex-col min-w-40">
             <div
-                class="border-[{{ $mapSeriesSorted[$i]['color'] }}] border-4 h-12 w-12 rounded-full flex justify-center items-center relative">
-                <p class="text-[{{ $mapSeriesSorted[$i]['color'] }}] text-lg font-bold">{{ $i + 1 }}</p>
+                class="border-[{{ $total['color'] }}] border-4 h-12 w-12 rounded-full flex justify-center items-center relative">
+                <p class="text-[{{ $total['color'] }}] text-lg font-bold">{{ $loop->iteration }}</p>
                 <div
-                    class="before:content-['▼'] absolute -bottom-1 h-2 text-[{{ $mapSeriesSorted[$i]['color'] }}] text-xl scale-y-50">
+                    class="before:content-['▼'] absolute -bottom-1 h-2 text-[{{ $total['color'] }}] text-xl scale-y-50">
                 </div>
             </div>
             <div class="w-full relative flex justify-center items-center my-4">
-                <div class="h-2 w-2 bg-[{{ $mapSeriesSorted[$i]['color'] }}] absolute rounded-full z-50"></div>
+                <div class="h-2 w-2 bg-[{{ $total['color'] }}] absolute rounded-full z-50"></div>
                 <div class="border border-gray-400 border-dashed w-full absolute"></div>
             </div>
-            <h4 class="font-light text-lg italic text-[{{ $mapSeriesSorted[$i]['color'] }}]">
-                {{ $mapSeriesSorted[$i]['name'] }}</h4>
+            <h4 class="font-light text-lg italic text-[{{ $total['color'] }}]">
+                {{ $total['island'] }}</h4>
             <h5 class="font-bold text-lg">{{ $formattedNumber }}</h5>
         </div>
-    @endfor
+    @endforeach
 </section>
 
 @if (count($values) > 0)
     <section class="flex justify-center items-center mb-24 mx-6">
-        <div
-            class="bg-red-700 flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-6 flex-col md:flex-row">
+        <div class="flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-8 flex-col md:flex-row">
             @foreach ($values as $value)
-                <div class="max-w-96 text-white m-6 text-center flex flex-col justify-start items-center group">
+                <div
+                    class="max-w-96 text-black text-center flex flex-col justify-start items-center group shadow-xl p-6 rounded-xl">
                     <img src="{{ asset('storage/value/' . $value->image) }}"
-                        class="max-h-80 md:max-w-full object-contain group-hover:scale-105 transition"
+                        class="max-h-60 md:max-w-full object-contain group-hover:scale-105 transition rounded-xl"
                         alt="product value" />
-                    <h1 class="text-3xl font-black">{{ $value->title }}</h1>
-                    <h2 class="text-sm max-w-72">{{ $value->description }}</h2>
+                    <div class="bg-gray-200 h-[0.5px] w-full my-6"></div>
+                    <h1 class="text-3xl font-black mb-2 text-red-600">{{ $value->title }}</h1>
+                    <h2 class="text-sm max-w-72 text-gray-600">{{ $value->description }}</h2>
                 </div>
             @endforeach
         </div>
@@ -152,10 +181,10 @@
         <h1 class="text-gray-500 text-2xl italic text-center">Didukung Pemerintah dan Organisasi Perunggasan Melalui :
         </h1>
         <div
-            class="flex flex-wrap p-6 md:p-16 m-6 bg-gray-200 justify-center items-center gap-12 rounded-3xl lg:rounded-[4rem] max-w-7xl">
+            class="flex flex-wrap p-6 md:p-16 m-6 bg-gray-100 justify-center items-center gap-12 rounded-xl max-w-7xl border-2">
             @foreach ($supports as $support)
                 <img src="{{ asset('storage/support/' . $support->image) }}"
-                    class="max-h-28 object-contain hover:scale-105 transition" alt="Supporter" />
+                    class="max-h-28 max-w-28 object-contain hover:scale-105 transition" alt="Supporter" />
             @endforeach
         </div>
     </section>
@@ -206,7 +235,7 @@
     <section class="bg-gray-200 py-8">
         <h1 class="font-bold text-2xl md:text-4xl text-center">HAPPY <span class="text-red-600">CUSTOMER</span></h1>
         <h2 class="text-gray-600 text-sm md:text-lg text-center">More Than {{ count($customers) }}+ UMKM</h2>
-        <div id="default-carousel" class="relative w-full" data-carousel="static">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative overflow-hidden h-[700px] sm:h-[600px]">
                 {{-- divide by forth item --}}
@@ -293,31 +322,25 @@
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{{ asset('storage/logo/' . $identities->logo_light) }}" class="h-12" alt="Beli Ayam Logo" />
+                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse mb-4">
+                    <img src="{{ asset('storage/logo/' . $identities->logo_light) }}" class="h-12"
+                        alt="Beli Ayam Logo" />
                 </a>
+                <h1 class="font-bold text-gray-300">beliayam.com</h1>
+                <p class="text-gray-400 text-sm max-w-md text-justify">{{ $identities->footer_desc }}</p>
             </div>
             <div class="flex gap-8 sm:gap-16 flex-wrap">
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Services</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Links</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Links</a>
+                            <a href="#" class="hover:underline ">Home</a>
                         </li>
-                        <li>
-                            <a href="#" class="hover:underline">Links</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="hidden md:block w-[1px] h-full bg-yellow-300"></div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase text-white">Useful Links</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
+                            <a href="#" class="hover:underline">Products</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                            <a href="#" class="hover:underline">Certificates</a>
                         </li>
                     </ul>
                 </div>
@@ -350,7 +373,7 @@
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
-                    href="https://flowbite.com/" class="hover:underline">Jualayam.com™</a>. All Rights Reserved.
+                    href="https://flowbite.com/" class="hover:underline">beliayam.com™</a>. All Rights Reserved.
             </span>
         </div>
     </div>
@@ -377,14 +400,17 @@
         </div>
     </div>
 </footer>
+
 {{-- Map Chart --}}
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
 <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
 <script src="{{ asset('js/highcharts.js') }}"></script>
-<script>
-    const result = @json($mapSeriesSorted);
+<script src="{{ asset('js/modal.js') }}"></script>
 
-    createMap(result)
+<script>
+    const result = @json($groupedPricings);
+
+    createMap(result);
 </script>
 
 </html>

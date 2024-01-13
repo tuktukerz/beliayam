@@ -25,6 +25,7 @@ class SiteIdentitiesSeeder extends Seeder
             'twitter' => 'https://twitter.com',
             'google_map' => 'https://maps.google.com',
             'youtube' => 'https://youtube.com',
+            'footer_desc' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est laborum voluptate obcaecati consequatur blanditiis autem quod adipisci neque iure suscipit.',
             'logo_light' => 'logo_light.png', // assuming the logo format is png
             'logo_black' => 'logo_black.png', // assuming the logo format is png
             'created_at' => now(),

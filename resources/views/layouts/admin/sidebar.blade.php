@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item @yield('pricing')">
-                        <a href="{{ route('pricing.show', '1') }}" class='sidebar-link'>
+                        <a href="{{ route('pricing.index') }}" class='sidebar-link'>
                             <i class="bi bi-cash-coin"></i>
                             <span>Pricing</span>
                         </a>

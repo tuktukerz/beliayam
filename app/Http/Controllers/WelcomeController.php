@@ -7,45 +7,50 @@ use App\Models\Pricing;
 use App\Models\SectionBanner;
 use App\Models\SiteIdentity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class WelcomeController extends Controller
 {
     public function show()
     {
+        $priceTotalByIsland = Pricing::select('island', DB::raw('SUM(price) as total_price'), 'color')
+            ->groupBy('island')
+            ->groupBy('color')
+            ->orderByDesc('total_price', 'desc')
+            ->get();
         $identities = SiteIdentity::latest()->first();
-        $pricings = Pricing::latest()->first();
-        $series = json_decode(file_get_contents(public_path('json/mapKey.json')), true);
+        $pricings = Pricing::get()->toArray();
         $values = Content::where('type', 'value')->get();
         $supports = Content::where('type', 'support')->get();
         $howto = Content::where('type', 'howto')->latest()->first();
         $customers = Content::where('type', 'customer')->get();
 
-        $mapSeriesSorted = [];
+        $groupedPricings = [];
 
-        // adding pricings value to the value of each data from the series
-        foreach ($series as $island) {
-            $mapSeriesSorted[] = [
-                'name' => $island['name'] ?? null,
-                'data' => array_map(function ($code) use ($island, $pricings) {
-                    return [
-                        'code' => $code,
-                        'value' => $pricings[$island['alias']] ?? null,
-                    ];
-                }, $island['data'] ?? []),
-                'color' => $island['color'] ?? null
-            ];
+        // grouping the price by island with hash table
+        foreach ($pricings as $data) {
+            if (isset($groupedPricings[$data['island']])) {
+                $groupedPricings[$data['island']]['data'][] = [
+                    'code' => $data['hc_key'],
+                    'value' => $data['price'],
+                ];
+            } else {
+                $groupedPricings[$data['island']] = [
+                    'name' => $data['island'],
+                    'color' => $data['color'],
+                    'data' => [
+                        [
+                            'code' => $data['hc_key'],
+                            'value' => $data['price'],
+                        ],
+                    ],
+                ];
+            }
         }
-
-        usort($mapSeriesSorted, function($a, $b) {
-            $valueA = $a['data'][0]['value'] ?? 0;
-            $valueB = $b['data'][0]['value'] ?? 0; 
-        
-            return $valueB - $valueA;
-        });
 
         $sectionBanner = SectionBanner::latest()
             ->first();
-        return view('welcome', compact('sectionBanner', 'mapSeriesSorted', 'values', 'supports', 'howto', 'customers', 'identities'));
+        return view('welcome', compact('sectionBanner', 'groupedPricings', 'priceTotalByIsland', 'values', 'supports', 'howto', 'customers', 'identities'));
     }
 }
