@@ -6,7 +6,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="logo">
                         <a href="{{ route('dashboard') }}"><img src="{{ asset('dist') }}/assets/images/logo/logo1.png"
-                                                           alt="Logo" srcset=""></a>
+                                                                alt="Logo" srcset=""></a>
                     </div>
                     <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -75,8 +75,14 @@
                             <span>Content</span>
                         </a>
                     </li>
+                    <li class="sidebar-item @yield('product')">
+                        <a href="{{ route('product.index') }}" class='sidebar-link'>
+                            <i class="bi bi-bucket"></i>
+                            <span>Product</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item">
-                        <a href="{{ route('welcome') }}" class='sidebar-link'>
+                        <a href="{{ route('welcome') }}" class='sidebar-link' target="_blank">
                             <i class="bi bi-sign-turn-left"></i>
                             <span>Welcome Page</span>
                         </a>

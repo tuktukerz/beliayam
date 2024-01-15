@@ -1,4 +1,4 @@
-@section('title', 'Dashboard - Tracking Apps Warjali')
+@section('title', 'Dashboard - Beli ayam.com')
 @extends('layouts.admin.master')
 @section('dashboard', 'active')
 @section('content')
