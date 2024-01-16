@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [WelcomeController::class, 'show'])->name('welcome');
-Route::get('/product', [ProductController::class, 'showListProduct'])->name('showListProduct');
+Route::get('product', [ProductController::class, 'showListProduct'])->name('showListProduct');
 
 
 Auth::routes([
@@ -33,10 +33,10 @@ Auth::routes([
 ]);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/admin/site-identity', SiteIdentityController::class);
-    Route::resource('/admin/banner', SectionBannerController::class);
-    Route::resource('/admin/pricing', PricingController::class);
-    Route::resource('/admin/content', ContentController::class);
-    Route::resource('/admin/product', ProductController::class);
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('admin/site-identity', SiteIdentityController::class);
+    Route::resource('admin/banner', SectionBannerController::class);
+    Route::resource('admin/pricing', PricingController::class);
+    Route::resource('admin/content', ContentController::class);
+    Route::resource('admin/product', ProductController::class);
 });
