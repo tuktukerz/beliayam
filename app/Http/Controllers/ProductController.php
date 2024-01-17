@@ -79,6 +79,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $validated = $request->validate([
+            'price' => 'numeric',
+        ]);
+
         if ($request->hasFile('productImage')) {
             if ($product->image) {
                 Storage::delete('public/product/' . $product->image);
@@ -89,6 +93,8 @@ class ProductController extends Controller
 
             $request['image'] = $imageName;
         }
+
+        $product->update($request->except(['productImage']));
 
         return redirect()->route('product.index');
     }
