@@ -132,7 +132,7 @@
 </section>
 
 <section class="w-full justify-center md:mb-24 py-6 hidden md:flex flex-wrap">
-    @foreach ($priceTotalByIsland as $total)
+    @foreach ($priceAverageByisland as $total)
     @php
     $formattedNumber = number_format($total['total_price']);
 

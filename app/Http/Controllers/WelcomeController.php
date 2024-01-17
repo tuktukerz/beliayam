@@ -14,7 +14,7 @@ class WelcomeController extends Controller
 {
     public function show()
     {
-        $priceTotalByIsland = Pricing::select('island', DB::raw('SUM(price) as total_price'), 'color')
+        $priceAverageByisland = Pricing::select('island', DB::raw('AVG(price) as total_price'), 'color')
             ->groupBy('island')
             ->groupBy('color')
             ->orderByDesc('total_price', 'desc')
@@ -51,6 +51,6 @@ class WelcomeController extends Controller
 
         $sectionBanner = SectionBanner::latest()
             ->first();
-        return view('welcome', compact('sectionBanner', 'groupedPricings', 'priceTotalByIsland', 'values', 'supports', 'howto', 'customers', 'identities'));
+        return view('welcome', compact('sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'howto', 'customers', 'identities'));
     }
 }
