@@ -36,6 +36,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'price' => 'numeric',
+        ]);
+
         $imageName = null;
 
         if ($request->hasFile('productImage')) {

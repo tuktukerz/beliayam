@@ -40,19 +40,19 @@
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" class="form-control" placeholder="Product Name"
-                                                   name="name"">
+                                                   name="name" value="{{old('name')}}" required>
                                         </div>
-                                        @error('title')
+                                        @error('name')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label>Price</label>
-                                            <input type="text" class="form-control" placeholder="Product Price"
-                                                   name="price">
+                                            <input type="number" class="form-control" placeholder="Product Price"
+                                                   name="price" value="{{old('price')}}" required>
                                         </div>
-                                        @error('description')
+                                        @error('price')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -69,7 +69,7 @@
                                                     </select>
                                                 </fieldset>
                                             </div>
-                                            @error('value')
+                                            @error('piece')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
