@@ -4,9 +4,8 @@
         <div class="sidebar-wrapper active">
             <div class="sidebar-header position-relative">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="logo">
-                        <a href="{{ route('dashboard') }}"><img src="{{ asset('dist') }}/assets/images/logo/logo1.png"
-                                                                alt="Logo" srcset=""></a>
+                    <div class="logo w-100 h-100">
+                        <a href="{{ route('dashboard') }}"><img class="w-100 h-100 object-fit-contain" src="{{ asset('images/logo_black.png') }}" alt="logo"></a>
                     </div>
                     <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
