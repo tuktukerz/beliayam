@@ -55,7 +55,8 @@
                             <span class="text-sm text-slate-900">/ {{ $product->piece }}</span>
                         </p>
                     </div>
-                    <a class="flex items-center justify-center rounded-md bg-red-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-800">
+                    <a href="https://wa.me/{{ $identities->phone }}?text=asdadasd"
+                       class="flex items-center justify-center rounded-md bg-red-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-800">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
