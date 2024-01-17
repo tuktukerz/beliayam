@@ -29,7 +29,7 @@
 <section class="px-6 xl:px-32 text-center flex flex-col justify-center items-center mb-24">
     <h1 class="font-bold text-2xl md:text-4xl">Our <span class="text-red-600">Product</span></h1>
     <section class="flex justify-center items-center mb-24 mx-6">
-        <div class="flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-8 flex-col md:flex-row">
+        <div class="flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-8 flex-col md:flex-row flex-wrap">
             @foreach ($products as $product)
             @php
             // Format the price
@@ -39,9 +39,9 @@
             $formattedNumber = 'Rp ' . $formattedNumber;
             @endphp
             <div
-                class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+                class="relative flex max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md grow">
                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
-                    <img class="object-cover"
+                    <img class="object-cover w-full"
                          src="{{ asset('storage/product/' . $product->image) }}"
                          alt="product image"/>
                 </a>
@@ -55,7 +55,7 @@
                             <span class="text-sm text-slate-900">/ {{ $product->piece }}</span>
                         </p>
                     </div>
-                    <a href="https://wa.me/{{ $identities->phone }}?text=asdadasd"
+                    <a href="https://wa.me/{{ $identities->phone }}?text=Tentang produk {{$product->name}} dengan harga {{ $formattedNumber }}"
                        class="flex items-center justify-center rounded-md bg-red-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-800">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor" stroke-width="2">
@@ -76,7 +76,7 @@
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse mb-4">
-                <img src="{{ asset('storage/logo/' . $identities->logo_light) }}" class="h-12"
+                <img src="{{ asset('storage/logo/' . $identities->logo_black) }}" class="h-12"
                      alt="Beli Ayam Logo"/>
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
