@@ -6,6 +6,7 @@ use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LegalController;
 use App\Http\Controllers\SectionBannerController;
 use App\Http\Controllers\SiteIdentityController;
 use App\Http\Controllers\WelcomeController;
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [WelcomeController::class, 'show'])->name('welcome');
 Route::get('product', [ProductController::class, 'showListProduct'])->name('showListProduct');
+Route::get('privacy', [LegalController::class, 'listPrivacy'])->name('privacy');
+Route::get('tos', [LegalController::class, 'listTos'])->name('tos');
 
 
 Auth::routes([
@@ -39,4 +42,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/pricing', PricingController::class);
     Route::resource('admin/content', ContentController::class);
     Route::resource('admin/product', ProductController::class);
+    Route::resource('admin/legal', LegalController::class);
 });

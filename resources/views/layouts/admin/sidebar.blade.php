@@ -80,6 +80,12 @@
                             <span>Product</span>
                         </a>
                     </li>
+                    <li class="sidebar-item @yield('legal')">
+                        <a href="{{ route('legal.index') }}" class='sidebar-link'>
+                            <i class="bi bi-bucket"></i>
+                            <span>Legal</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item">
                         <a href="{{ route('welcome') }}" class='sidebar-link' target="_blank">
                             <i class="bi bi-sign-turn-left"></i>
