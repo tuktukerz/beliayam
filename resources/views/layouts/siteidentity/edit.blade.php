@@ -1,4 +1,4 @@
-@section('title', 'Edit Site Identity - Jual Ayam.com')
+@section('title', 'Edit Site Identity - beliayam.com')
 @extends('layouts.admin.master')
 @section('mrchnt', 'active')
 @section('content')

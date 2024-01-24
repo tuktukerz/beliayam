@@ -1,4 +1,4 @@
-@section('title', 'Edit - Jual Ayam.com')
+@section('title', 'Edit - beliayam.com')
 @extends('layouts.admin.master')
 @section('product', 'active')
 @section('content')
