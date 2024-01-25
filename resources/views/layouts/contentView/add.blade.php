@@ -50,7 +50,7 @@
                                                     </select>
                                                 </fieldset>
                                             </div>
-                                            @error('value')
+                                            @error('type')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
