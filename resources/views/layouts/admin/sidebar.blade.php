@@ -82,8 +82,20 @@
                     </li>
                     <li class="sidebar-item @yield('legal')">
                         <a href="{{ route('legal.index') }}" class='sidebar-link'>
-                            <i class="bi bi-bucket"></i>
+                            <i class="bi bi-file-earmark-medical"></i>
                             <span>Legal</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item @yield('faq')">
+                        <a href="{{ route('faq.index') }}" class='sidebar-link'>
+                            <i class="bi bi-patch-question"></i>
+                            <span>FAQ</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item @yield('formOrder')">
+                        <a href="{{ route('form.index') }}" class='sidebar-link'>
+                            <i class="bi bi-ui-checks"></i>
+                            <span>Form Order</span>
                         </a>
                     </li>
                     <li class="sidebar-item">

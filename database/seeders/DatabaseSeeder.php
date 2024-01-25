@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             ContentSeeder::class,
             SiteIdentitiesSeeder::class,
             LegalSeeder::class,
+            FaqSeeder::class,
+            FormOrderSeeder::class,
         ]);
 
         User::create([
