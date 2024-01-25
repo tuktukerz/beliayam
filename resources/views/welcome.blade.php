@@ -32,7 +32,7 @@
             </div>
             <!-- Modal body -->
             <div class="space-y-6 p-6" id="ads">
-                <x-smart-ad-component slug="ads" />
+                {{-- <x-smart-ad-component slug="ads" /> --}}
             </div>
         </div>
     </div>

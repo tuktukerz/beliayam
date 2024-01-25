@@ -19,7 +19,5 @@
     <link rel="stylesheet" href="{{ asset('dist') }}/assets/css/pages/simple-datatables.css">
     <link rel="stylesheet" href="{{ asset('dist') }}/assets/extensions/flatpickr/flatpickr.min.css">
 
-    <script src="{{ asset('vendor/smart-ads/js/smart-banner.min.js') }}"></script>
-
 
 </head>
