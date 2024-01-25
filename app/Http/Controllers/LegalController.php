@@ -48,6 +48,8 @@ class LegalController extends Controller
     public function store(Request $request)
     {
         Legal::create($request->all());
+
+        return redirect()->route('legal.index');
     }
 
     /**
