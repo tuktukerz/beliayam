@@ -8,7 +8,7 @@ const createMap = async (result) => {
         chart: {
             map: topology,
             spacingBottom: 20,
-            plotBackgroundImage: '../images/logo-transparent.png'
+            // plotBackgroundImage: '../images/logo-transparent.png'
         },
 
         title: {
