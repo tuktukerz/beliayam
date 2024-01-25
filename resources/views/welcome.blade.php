@@ -12,7 +12,7 @@
 
 <div id="modal-ad" tabindex="-1" aria-hidden="true"
     class="fixed left-0 right-0 top-0 z-[99] hidden h-[calc(100%-1rem)] max-h-full w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0">
-    <div class="relative max-h-full w-full max-w-2xl">
+    <div class="relative max-h-full w-fit max-w-6xl">
         <!-- Modal content -->
         <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
             <!-- Modal header -->
@@ -31,8 +31,8 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="space-y-6 p-6" id="ads">
-                {{-- <x-smart-ad-component slug="ads" /> --}}
+            <div class="space-y-6 p-6 flex" id="ads">
+                <img src="{{ asset('storage/ad/' . $identities->ad) }}"/>
             </div>
         </div>
     </div>

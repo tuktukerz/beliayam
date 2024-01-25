@@ -147,6 +147,16 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="disabledInput">Advertisement</label>
+                                                    <div>
+                                                        <img class="w-90 active"
+                                                            src="{{ asset('storage/ad/' . $siteIdentity->ad) }}"
+                                                            data-bs-slide-to="0" width="300" >
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <a href="{{ route('site-identity.edit', $siteIdentity->id) }}"
                                             class="btn btn-primary me-1 mb-1">Ubah Data</a>

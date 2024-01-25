@@ -54,8 +54,8 @@ class SiteIdentityController extends Controller
     public function update(Request $request, SiteIdentity $siteIdentity)
     {
         if ($request->hasFile('logoBlack')) {
-            if ($siteIdentity->logoBlack) {
-                Storage::delete('public/logo/' . $siteIdentity->logo);
+            if ($siteIdentity->logo_black) {
+                Storage::delete('public/logo/' . $siteIdentity->logo_black);
             }
 
             $imageName = 'logo_black' . "." . $request->logoBlack->extension();
@@ -65,8 +65,8 @@ class SiteIdentityController extends Controller
         }
 
         if ($request->hasFile('logoLight')) {
-            if ($siteIdentity->logoLight) {
-                Storage::delete('public/logo/' . $siteIdentity->logo);
+            if ($siteIdentity->logo_light) {
+                Storage::delete('public/logo/' . $siteIdentity->logo_light);
             }
 
             $imageName = 'logo_light' . "." . $request->logoLight->extension();
@@ -75,9 +75,20 @@ class SiteIdentityController extends Controller
             $request['logo_light'] = $imageName;
         }
 
-        $siteIdentity->update($request->except(['logoBlack', 'logoLight']));
+        if ($request->hasFile('adFile')) {
+            if ($siteIdentity->ad) {
+                Storage::delete('public/ad/' . $siteIdentity->ad);
+            }
 
-        return redirect()->route('dashboard');
+            $imageName = 'ad' . "." . $request->adFile->extension();
+            $request->file('adFile')->storeAs('public/ad', $imageName);
+
+            $request['ad'] = $imageName;
+        }
+
+        $siteIdentity->update($request->except(['logoBlack', 'logoLight', 'adFile']));
+
+        return redirect()->route('site-identity.show', $siteIdentity->id);
     }
 
     /**
