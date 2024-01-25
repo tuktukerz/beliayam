@@ -16,7 +16,7 @@
     <section>
         <h1 class="text-red-600 font-bold text-2xl md:text-4xl text-center my-16">KEBIJAKAN PRIVASI</h1>
         @foreach ($privacies as $privacy)
-            <div class="*:font-sans mb-12">
+            <div class="*:font-sans mb-6">
                 <h2 class="font-bold text-xl mb-4">{{ $loop->iteration . '. ' . $privacy->title }}</h2>
                 <pre class="whitespace-pre-wrap text-gray-600">{{ $privacy->description }}</pre>
             </div>
@@ -45,7 +45,7 @@
                             <a href={{route('showListProduct')}} class="hover:underline">Products</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">About Us</a>
+                            <a href={{ route('about') }} class="hover:underline">About Us</a>
                         </li>
                     </ul>
                 </div>
