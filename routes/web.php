@@ -49,5 +49,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/legal', LegalController::class);
     Route::resource('admin/faq', FaqController::class);
     Route::resource('admin/form', FormOrderController::class);
-    Route::resource("admin/seo", SeoController::class);
+    Route::resource("admin/seo", SeoController::class)->except(['create', 'store', 'show', 'destroy']);
 });

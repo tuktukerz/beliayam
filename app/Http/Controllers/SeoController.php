@@ -21,7 +21,7 @@ class SeoController extends Controller
      */
     public function create()
     {
-        return view('layouts.seo.add');
+        //
     }
 
     /**
@@ -29,9 +29,7 @@ class SeoController extends Controller
      */
     public function store(Request $request)
     {
-        Seo::create($request->all());
-
-        return redirect()->route('seo.index');
+        //
     }
 
     /**
@@ -65,8 +63,6 @@ class SeoController extends Controller
      */
     public function destroy(Seo $seo)
     {
-        $seo->delete();
-
-        return redirect()->route('seo.index');
+        //
     }
 }
