@@ -38,7 +38,7 @@ class FormOrderController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('form.index');
     }
 
     /**
@@ -46,15 +46,15 @@ class FormOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('form.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(FormOrder $formOrder)
+    public function show()
     {
-        //
+        return redirect()->route('form.index');
     }
 
     /**
@@ -82,6 +82,6 @@ class FormOrderController extends Controller
      */
     public function destroy(FormOrder $formOrder)
     {
-        //
+        return redirect()->route('form.index');
     }
 }

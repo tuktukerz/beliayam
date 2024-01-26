@@ -22,7 +22,7 @@ class PricingController extends Controller
      */
     public function create()
     {
-
+        return redirect()->route('pricing.index');
     }
 
     /**
@@ -30,7 +30,8 @@ class PricingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('pricing.index');
+
     }
 
     /**
@@ -38,8 +39,7 @@ class PricingController extends Controller
      */
     public function show(string $id)
     {
-        $pricing = Pricing::findOrFail($id);
-        return view('layouts.pricing.index', compact('pricing'));
+        return redirect()->route('pricing.index');
     }
 
     /**
@@ -68,6 +68,6 @@ class PricingController extends Controller
      */
     public function destroy(Pricing $pricing)
     {
-        //
+        return redirect()->route('pricing.index');
     }
 }

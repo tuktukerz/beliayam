@@ -21,23 +21,23 @@ class SeoController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('seo.index');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        return redirect()->route('seo.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        return redirect()->route('seo.index');
     }
 
     /**
@@ -63,6 +63,6 @@ class SeoController extends Controller
      */
     public function destroy(Seo $seo)
     {
-        //
+        return redirect()->route('seo.index');
     }
 }

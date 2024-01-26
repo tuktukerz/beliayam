@@ -58,9 +58,9 @@ class LegalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Legal $legal)
+    public function show()
     {
-        //
+        return redirect()->route('legal.index');
     }
 
     /**

@@ -43,11 +43,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('admin/site-identity', SiteIdentityController::class);
     Route::resource('admin/banner', SectionBannerController::class);
-    Route::resource('admin/pricing', PricingController::class)->except(['create', 'store', 'destroy']);
+    Route::resource('admin/pricing', PricingController::class);
     Route::resource('admin/content', ContentController::class);
     Route::resource('admin/product', ProductController::class);
-    Route::resource('admin/legal', LegalController::class)->except(['show']);
-    Route::resource('admin/faq', FaqController::class)->except(['show']);
-    Route::resource('admin/form', FormOrderController::class)->except(['create', 'show', 'store', 'destroy']);
-    Route::resource("admin/seo", SeoController::class)->except(['create', 'store', 'show', 'destroy']);
+    Route::resource('admin/legal', LegalController::class);
+    Route::resource('admin/faq', FaqController::class);
+    Route::resource('admin/form', FormOrderController::class);
+    Route::resource("admin/seo", SeoController::class);
 });

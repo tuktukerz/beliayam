@@ -38,9 +38,9 @@ class FaqController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Faq $faq)
+    public function show()
     {
-        //
+        return redirect()->route('faq.index');
     }
 
     /**

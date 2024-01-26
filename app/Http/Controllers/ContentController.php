@@ -53,9 +53,9 @@ class ContentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Content $content)
+    public function show()
     {
-        //
+        return redirect()->route('content.index');
     }
 
     /**
