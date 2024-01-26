@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('admin/site-identity', SiteIdentityController::class);
     Route::resource('admin/banner', SectionBannerController::class);
-    Route::resource('admin/pricing', PricingController::class);
+    Route::resource('admin/pricing', PricingController::class)->except(['create', 'store', 'destroy']);
     Route::resource('admin/content', ContentController::class);
     Route::resource('admin/product', ProductController::class);
     Route::resource('admin/legal', LegalController::class);
