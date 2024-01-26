@@ -35,7 +35,7 @@
             </div>
             <!-- Modal body -->
             <div class="space-y-6 p-6 flex" id="ads">
-                <img src="{{ asset('storage/ad/' . $identities->ad) }}"/>
+                <img src="{{ asset('storage/ad/' . $identities->ad) }}" class="max-h-[700px]"/>
             </div>
         </div>
     </div>
