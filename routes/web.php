@@ -7,6 +7,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FormOrderController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SeoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\SectionBannerController;
@@ -48,4 +49,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/legal', LegalController::class);
     Route::resource('admin/faq', FaqController::class);
     Route::resource('admin/form', FormOrderController::class);
+    Route::resource("admin/seo", SeoController::class);
 });

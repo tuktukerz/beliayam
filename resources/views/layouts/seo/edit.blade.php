@@ -1,22 +1,22 @@
-@section('title', 'Legal - beliayam.com')
+@section('title', 'SEO - beliayam.com')
 @extends('layouts.admin.master')
-@section('legal', 'active')
+@section('seo', 'active')
 @section('content')
 <div id="main-content">
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Edit Legal</h3>
+                    <h3>Edit SEO</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{ route('legal.index') }}">Legal</a>
+                                <a href="{{ route('seo.index') }}">SEO</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Edit Legal
+                                Edit SEO
                             </li>
                         </ol>
                     </nav>
@@ -30,28 +30,35 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <form action="{{ route('legal.update', $legal->id) }}" class="form" method="post"
+                                <form action="{{ route('seo.update', $seo->id) }}" class="form" method="post"
                                       enctype="multipart/form-data">
                                     @csrf @method('PUT')
                                     <div class="col">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Type</label>
+                                                <label>Page</label>
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" name="type"
+                                                    <select class="form-select" id="basicSelect" name="page"
                                                             required>
                                                         <option value="">Select Type</option>
-                                                        <option value="tos" @selected($legal->type == 'tos')>Syarat &
-                                                            Ketentuan Pengguna
+                                                        <option value="home" @selected($seo->page == 'home')>Home
                                                         </option>
-                                                        <option value="privacy" @selected($legal->type ==
-                                                            'privacy')>Kebijakan
-                                                            Privasi
+                                                        <option value="about" @selected($seo->page ==
+                                                            'about')>About
+                                                        </option>
+                                                        <option value="product" @selected($seo->page ==
+                                                            'product')>Product
+                                                        </option>
+                                                        <option value="tos" @selected($seo->page ==
+                                                            'tos')>Terms Of Service
+                                                        </option>
+                                                        <option value="privacy" @selected($seo->page ==
+                                                            'privacy')>Privacy
                                                         </option>
                                                     </select>
                                                 </fieldset>
                                             </div>
-                                            @error('type')
+                                            @error('page')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -59,9 +66,19 @@
                                             <div class="form-group">
                                                 <label>Title</label>
                                                 <input type="text" class="form-control" placeholder="Title"
-                                                       name="title" value="{{ $legal->title }}">
+                                                       name="title" value="{{ $seo->title }}">
                                             </div>
                                             @error('title')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label>Keywords</label>
+                                                <input type="text" class="form-control" placeholder="Title"
+                                                       name="keywords" value="{{ $seo->keywords }}">
+                                            </div>
+                                            @error('keywords')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -70,7 +87,7 @@
                                                 <label>Description</label>
                                                 <textarea class="form-control" placeholder="Description"
                                                           name="description"
-                                                          rows="5">{{ $legal->description }}</textarea>
+                                                          rows="5">{{ $seo->description }}</textarea>
                                             </div>
                                             @error('description')
                                             <p class="text-danger">{{ $message }}</p>
