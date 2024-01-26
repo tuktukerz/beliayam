@@ -33,29 +33,21 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{ route('banner.update', $sectionBanner->id )}}"
+                                <form class="form" action="{{ route('banner.update', $banner->id )}}"
                                       method="POST" enctype="multipart/form-data">
                                     @csrf @method('PUT')
                                     <div class="row">
                                         <div class="col-md-12 col-12">
                                             <div class="form-group mb-3">
-                                                <label>Banner 1</label>
-                                                <input class="form-control form-control" type="file"
-                                                       name="banner1">
+                                                <label>Image</label><br>
+                                                <img class="img-fluid"
+                                                     src="{{ asset('storage/banner/' . $banner->image) }}"
+                                                     data-bs-slide-to="0" width="300" height="300">
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 col-12">
                                             <div class="form-group mb-3">
-                                                <label>Banner 2</label>
+                                                <label>Image</label>
                                                 <input class="form-control form-control" type="file"
-                                                       name="banner2">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-12">
-                                            <div class="form-group mb-3">
-                                                <label>Banner 3</label>
-                                                <input class="form-control form-control" type="file"
-                                                       name="banner3">
+                                                       name="image">
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-start mt-3">

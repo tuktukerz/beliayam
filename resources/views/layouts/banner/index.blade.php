@@ -4,6 +4,12 @@
 @section('content')
 <div id="main-content">
     <div class="page-heading">
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible show fade">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
@@ -27,51 +33,35 @@
             </div>
         </div>
 
-        <section id="multiple-column-form">
-            <div class="row match-height">
-                <div class="col-6">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <form class="form">
-                                    <div class="row">
-                                        <div class="col-md-12 col-12">
-                                            <div class="form-group">
-                                                <label for="disabledInput">Banner 1</label>
-                                                <div>
-                                                    <img class="w-90 active"
-                                                         src="{{ asset('storage/banner/' . $sectionBanner->banner1) }}"
-                                                         data-bs-slide-to="0" width="300" height="300">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-12">
-                                            <div class="form-group">
-                                                <label for="disabledInput">Banner 2</label>
-                                                <div>
-                                                    <img class="w-90 active"
-                                                         src="{{ asset('storage/banner/' . $sectionBanner->banner2) }}"
-                                                         data-bs-slide-to="0" width="300" height="300">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-12">
-                                            <div class="form-group">
-                                                <label for="disabledInput">Banner 3</label>
-                                                <div>
-                                                    <img class="w-90 active"
-                                                         src="{{ asset('storage/banner/' . $sectionBanner->banner3) }}"
-                                                         data-bs-slide-to="0" width="300" height="300">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="{{ route('banner.edit', $sectionBanner->id) }}"
-                                       class="btn btn-primary me-1 mb-1">Ubah Data</a>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+        <section class="section">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped table-bordered table-hover table-responsive"
+                           id="table1">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($sectionBanner as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>
+                                <img class="img-fluid"
+                                     src="{{ asset('storage/banner/' . $item->image) }}"
+                                     data-bs-slide-to="0" width="300" height="300">
+                            </td>
+                            <td>
+                                <a href="{{ route('banner.edit', $item->id) }}"
+                                   class="badge bg-warning">Edit</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SectionBanner extends Model
+class TrackVisitor extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'image',
+        'page',
+        'device',
+        'ip_address',
+        'country',
+        'visit_at',
     ];
 }

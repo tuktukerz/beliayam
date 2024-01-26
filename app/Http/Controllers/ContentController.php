@@ -47,15 +47,15 @@ class ContentController extends Controller
         }
 
         Content::create($request->except(['imageFile']));
-        return redirect()->route('content.index');
+        return redirect()->route('content.index')->with('success', 'Konten ' . $request->type . ' Berhasil ditambahkan !');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Content $content)
+    public function show()
     {
-        //
+        return redirect()->route('content.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class ContentController extends Controller
 
         $content->update($request->except(['imageFile']));
 
-        return redirect()->route('content.index');
+        return redirect()->route('content.index')->with('success', 'Konten ' . $content->type . ' Berhasil diubah');
     }
 
     /**
@@ -95,14 +95,14 @@ class ContentController extends Controller
      */
     public function destroy(Content $content)
     {
-        // Delete the image before deleting the content
+        // Delete the old banner if it exists
         if ($content->image) {
-            Storage::delete($content->image);
+            Storage::delete('public/customer/' . $content->image);
         }
 
         // Delete the content
         $content->delete();
 
-        return redirect()->route('content.index');
+        return redirect()->route('content.index')->with('success', 'Konten ' . $content->type . ' Berhasil Dihapus');
     }
 }

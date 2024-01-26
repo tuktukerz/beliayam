@@ -10,9 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('section_banners', function (Blueprint $table) {
+        Schema::create('track_visitors', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->string('page')->nullable();
+            $table->string('device')->nullable();
+            $table->string('ip_address')->nullable();
+            $table->string('country')->nullable();
+            $table->timestamp('visit_at')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('section_banners');
+        Schema::dropIfExists('track_visitors');
     }
 };

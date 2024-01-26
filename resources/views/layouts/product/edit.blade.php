@@ -33,7 +33,6 @@
                                 <form action="{{ route('product.update', $product->id) }}" class="form" method="post"
                                       enctype="multipart/form-data">
                                     @csrf @method('PUT')
-
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label>Product Name</label>

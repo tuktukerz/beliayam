@@ -52,15 +52,15 @@ class LegalController extends Controller
     {
         Legal::create($request->all());
 
-        return redirect()->route('legal.index');
+        return redirect()->route('legal.index')->with('success', 'Legal ' . $request->type . ' Berhasil dibuat !');;
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Legal $legal)
+    public function show()
     {
-        //
+        return redirect()->route('legal.index');
     }
 
     /**
@@ -78,7 +78,7 @@ class LegalController extends Controller
     {
         $legal->update($request->all());
 
-        return redirect()->route('legal.index');
+        return redirect()->route('legal.index')->with('success', 'Legal ' . $legal->type . ' Berhasil diedit !');;;
     }
 
     /**
@@ -88,6 +88,6 @@ class LegalController extends Controller
     {
         $legal->delete();
 
-        return redirect()->route('legal.index');
+        return redirect()->route('legal.index')->with('success', 'Legal ' . $legal->type . ' Berhasil dihapus !');;
     }
 }

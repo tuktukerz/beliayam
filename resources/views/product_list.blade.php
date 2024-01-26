@@ -33,7 +33,7 @@
                 class="relative flex max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md grow">
                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
                     <img class="object-cover w-full"
-                         src="{{ asset('storage/product/' . $product->image) }}"
+                         src="{{ $product->image ? asset('storage/product/' . $product->image) : asset('storage/product/default-product.jpg') }}"
                          alt="product image"/>
                 </a>
                 <div class="mt-4 px-5 pb-5">

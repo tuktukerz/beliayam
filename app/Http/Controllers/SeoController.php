@@ -21,25 +21,23 @@ class SeoController extends Controller
      */
     public function create()
     {
-        return view('layouts.seo.add');
+        return redirect()->route('seo.index');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
-        Seo::create($request->all());
-
         return redirect()->route('seo.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        return redirect()->route('seo.index');
     }
 
     /**
@@ -57,7 +55,7 @@ class SeoController extends Controller
     {
         $seo->update($request->all());
 
-        return redirect()->route('seo.index');
+        return redirect()->route('seo.index')->with('success', 'SE0 Page ' . $seo->page . ' Berhasil diupdate !');;
     }
 
     /**
@@ -65,8 +63,6 @@ class SeoController extends Controller
      */
     public function destroy(Seo $seo)
     {
-        $seo->delete();
-
         return redirect()->route('seo.index');
     }
 }

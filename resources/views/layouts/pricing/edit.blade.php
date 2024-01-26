@@ -39,15 +39,17 @@
                                     <div class="row">
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
-                                                <label>Province</label>
+                                                <label for="disabledInput">Province</label>
                                                 <input type="text" class="form-control" name="province"
-                                                       placeholder="Province" value="{{ $pricing->province }}">
+                                                       id="disabledInput"
+                                                       placeholder="Province Text" disabled=""
+                                                       value="{{ $pricing->province }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
                                                 <label>Price</label>
-                                                <input type="text" class="form-control" name="price"
+                                                <input type="number" class="form-control" name="price"
                                                        placeholder="Price" value="{{ $pricing->price }}">
                                             </div>
                                         </div>

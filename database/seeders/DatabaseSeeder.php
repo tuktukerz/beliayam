@@ -16,13 +16,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            PricingsSeeder::class,
-            SectionBannerSeeder::class,
             ContentSeeder::class,
-            SiteIdentitiesSeeder::class,
-            LegalSeeder::class,
             FaqSeeder::class,
             FormOrderSeeder::class,
+            LegalSeeder::class,
+            ProductSeeder::class,
+            PricingsSeeder::class,
+            SectionBannerSeeder::class,
+            SeoSeeder::class,
+            SiteIdentitiesSeeder::class,
         ]);
 
         User::create([

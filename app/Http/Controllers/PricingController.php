@@ -22,7 +22,7 @@ class PricingController extends Controller
      */
     public function create()
     {
-        
+        return redirect()->route('pricing.index');
     }
 
     /**
@@ -30,7 +30,8 @@ class PricingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('pricing.index');
+
     }
 
     /**
@@ -38,8 +39,7 @@ class PricingController extends Controller
      */
     public function show(string $id)
     {
-        $pricing = Pricing::findOrFail($id);
-        return view('layouts.pricing.index', compact('pricing'));
+        return redirect()->route('pricing.index');
     }
 
     /**
@@ -55,8 +55,12 @@ class PricingController extends Controller
      */
     public function update(Request $request, Pricing $pricing)
     {
-        $pricing->update($request->all());
-        return redirect()->route('pricing.index');
+        $validatedData = $request->validate([
+            'price' => 'numeric'
+        ]);
+
+        $pricing->update($validatedData);
+        return redirect()->route('pricing.index')->with('success', 'Harga Harian Berhasil Diubah !');;
     }
 
     /**
@@ -64,8 +68,6 @@ class PricingController extends Controller
      */
     public function destroy(Pricing $pricing)
     {
-        $pricing->delete();
-
         return redirect()->route('pricing.index');
     }
 }

@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\SectionBanner;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class SectionBannerSeeder extends Seeder
 {
@@ -13,12 +12,26 @@ class SectionBannerSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('section_banners')->insert([
-            'banner1' => 'banner1.jpg',
-            'banner2' => 'banner2.jpg',
-            'banner3' => 'banner3.jpg',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        $dataBanner = [
+            [
+                'image' => 'banner1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'image' => 'banner2.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'image' => 'banner3.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
+
+        foreach ($dataBanner as $data) {
+            SectionBanner::create($data);
+        }
     }
 }

@@ -14,7 +14,7 @@ class FormOrderController extends Controller
     public function index()
     {
         $formOrder = FormOrder::latest()->first();
-        
+
 
         // Create a new DOMDocument
         $dom = new DOMDocument;
@@ -38,7 +38,7 @@ class FormOrderController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('form.index');
     }
 
     /**
@@ -46,15 +46,15 @@ class FormOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('form.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(FormOrder $formOrder)
+    public function show()
     {
-        //
+        return redirect()->route('form.index');
     }
 
     /**
@@ -74,7 +74,7 @@ class FormOrderController extends Controller
         $formOrder = FormOrder::findOrFail($id);
         $formOrder->update($request->all());
 
-        return redirect()->route('form.index');
+        return redirect()->route('form.index')->with('success', 'Link form order Berhasil diupdate !');;
     }
 
     /**
@@ -82,6 +82,6 @@ class FormOrderController extends Controller
      */
     public function destroy(FormOrder $formOrder)
     {
-        //
+        return redirect()->route('form.index');
     }
 }

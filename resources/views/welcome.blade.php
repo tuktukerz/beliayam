@@ -21,7 +21,7 @@
             <!-- Modal header -->
             <div class="flex items-start justify-between rounded-t border-b p-5 dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white lg:text-2xl">
-                    May Interest You!
+                    Mungkin Menarik Bagi Anda!
                 </h3>
                 <button type="button" data-modal-hide="modal-ad"
                         class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
@@ -64,18 +64,12 @@
     <!-- Carousel wrapper -->
     <div class="relative h-64 overflow-hidden md:h-[600px] brightness-75">
         <!-- Item 1 -->
+        @foreach($sectionBanner as $banner)
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="{{ asset('storage/banner/' . $sectionBanner->banner1) }}"
+            <img src="{{ asset('storage/banner/' . $banner->image) }}"
                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="{{ asset('storage/banner/' . $sectionBanner->banner2) }}"
-                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="{{ asset('storage/banner/' . $sectionBanner->banner3) }}"
-                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
+        @endforeach
     </div>
     <!-- Slider indicators -->
     <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
