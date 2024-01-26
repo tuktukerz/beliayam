@@ -49,8 +49,7 @@ class WelcomeController extends Controller
             }
         }
 
-        $sectionBanner = SectionBanner::latest()
-            ->first();
+        $sectionBanner = SectionBanner::all();
         return view('welcome', compact('seo', 'sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'howto', 'customers', 'identities'));
     }
 }

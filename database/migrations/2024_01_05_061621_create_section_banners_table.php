@@ -12,9 +12,7 @@ return new class extends Migration {
     {
         Schema::create('section_banners', function (Blueprint $table) {
             $table->id();
-            $table->string('banner1');
-            $table->string('banner2');
-            $table->string('banner3');
+            $table->string('image');
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SectionBanner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class SectionBannerController extends Controller
 {
@@ -13,7 +14,8 @@ class SectionBannerController extends Controller
      */
     public function index()
     {
-        //
+        $sectionBanner = SectionBanner::all();
+        return view('layouts.banner.index', compact('sectionBanner'));
     }
 
     /**
@@ -21,7 +23,7 @@ class SectionBannerController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('banner.index');
     }
 
     /**
@@ -29,66 +31,55 @@ class SectionBannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('banner.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        $sectionBanner = SectionBanner::findOrFail($id);
-        return view('layouts.banner.index', compact('sectionBanner'));
+        return redirect()->route('banner.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(SectionBanner $banner)
     {
-        $sectionBanner = SectionBanner::findOrFail($id);
-        return view('layouts.banner.edit', compact('sectionBanner'));
+        return view('layouts.banner.edit', compact('banner'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, SectionBanner $banner)
     {
-        $sectionBanner = SectionBanner::findOrFail($id);
-        // Loop through each banner and update if a new file is provided
-        for ($i = 1; $i <= 3; $i++) {
-            $bannerFieldName = 'banner' . $i;
-
-            // Check if the request has the current banner file
-            if ($request->hasFile($bannerFieldName)) {
-                // Generate a unique name for the image
-                $imageName = $bannerFieldName . '.' . $request->file($bannerFieldName)->extension();
-
-                // Delete the old banner if it exists
-                if ($sectionBanner->$bannerFieldName) {
-                    Storage::delete('public/banner/' . $sectionBanner->$bannerFieldName);
-                }
-
-                // Store the image in the 'public/banner' directory
-                $request->file($bannerFieldName)->storeAs('public/banner', $imageName);
-
-                // Update the current banner field in the SectionBanner model
-                $sectionBanner->update([$bannerFieldName => $imageName]);
+        if ($request->hasFile('image')) {
+            // Delete the old image
+            if ($banner->image) {
+                Storage::delete('public/banner/' . $banner->image);
             }
+
+            // Store the new image
+            $imageName = Str::uuid() . time() . '.' . $request->file('image')->extension();
+            $request->file('image')->storeAs('public/banner', $imageName);
+
+            // Update the 'image' field in the SectionBanner model with only the filename
+            $banner->update(['image' => $imageName]);
         }
 
-        // Update other fields excluding 'banner1', 'banner2', 'banner3'
-        $sectionBanner->update($request->except(['banner1', 'banner2', 'banner3']));
+        // Update other fields excluding 'image'
+        $banner->update($request->except(['image']));
 
-        return redirect()->route('dashboard');
+        return redirect()->route('banner.index')->with('success', 'Banner Berhasil diubah !');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        //
+        return redirect()->route('banner.index');
     }
 }

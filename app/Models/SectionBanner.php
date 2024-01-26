@@ -9,5 +9,7 @@ class SectionBanner extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'image',
+    ];
 }

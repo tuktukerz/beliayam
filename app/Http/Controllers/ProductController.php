@@ -37,7 +37,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'price' => 'numeric',
         ]);
 
@@ -56,7 +56,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return redirect()->route('product.index')->with('success', 'Product ' . $request->name . ' Berhasil dibuat   !');;
+        return redirect()->route('product.index')->with('success', 'Product ' . $request->name . ' Berhasil dibuat !');;
     }
 
     /**
@@ -80,7 +80,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $validated = $request->validate([
+        $request->validate([
             'price' => 'numeric',
         ]);
 
@@ -97,7 +97,7 @@ class ProductController extends Controller
 
         $product->update($request->except(['productImage']));
 
-        return redirect()->route('product.index')->with('success', 'Product ' . $product->name . ' Berhasil diubah !');;
+        return redirect()->route('product.index')->with('success', 'Product ' . $product->name . ' Berhasil diubah !');
     }
 
     /**
