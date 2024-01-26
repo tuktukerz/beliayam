@@ -1,4 +1,4 @@
-@section('title', 'Edit Site Identity - Jual Ayam.com')
+@section('title', 'Edit Site Identity - beliayam.com')
 @extends('layouts.admin.master')
 @section('mrchnt', 'active')
 @section('content')
@@ -138,6 +138,12 @@
                                                     <div class="form-group mb-3">
                                                         <label>Logo (Black)</label>
                                                         <input class="form-control" type="file" name="logoBlack">
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class="form-group mb-3">
+                                                        <label>Advertisement</label>
+                                                        <input class="form-control" type="file" name="adFile">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 d-flex justify-content-start mt-3">

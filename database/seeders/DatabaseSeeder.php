@@ -19,7 +19,10 @@ class DatabaseSeeder extends Seeder
             PricingsSeeder::class,
             SectionBannerSeeder::class,
             ContentSeeder::class,
-            SiteIdentitiesSeeder::class
+            SiteIdentitiesSeeder::class,
+            LegalSeeder::class,
+            FaqSeeder::class,
+            FormOrderSeeder::class,
         ]);
 
         User::create([

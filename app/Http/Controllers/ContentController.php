@@ -32,6 +32,13 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request['type'] == 'howto') {
+            $howtoCount = Content::where('type', 'howto')->count();
+            if ($howtoCount > 0) {
+                return back()->withErrors(["type" => "Howto element is already present. Please remove or edit it"])->withInput();
+            }
+        }
+
         if ($request->hasFile('imageFile')) {
             $path = 'public/' . $request->input('type') . '/';
             $imageName = Str::uuid() . time() . '.' . $request->imageFile->extension();

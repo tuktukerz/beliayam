@@ -1,4 +1,4 @@
-@section('title', 'Detail Site Identity - Jual Ayam.com')
+@section('title', 'Detail Site Identity - beliayam.com')
 @extends('layouts.admin.master')
 @section('mrchnt', 'active')
 @section('content')
@@ -9,7 +9,7 @@
                     <div class="col-12 col-md-6 order-md-1 order-last">
                         <h3>Detail Site Identity</h3>
                         <p class="text-subtitle text-muted">
-                            Berikut adalah detail dari site jual ayam.com
+                            Berikut adalah detail dari site beliayam.com
                         </p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
@@ -143,6 +143,16 @@
                                                     <div>
                                                         <img class="w-90 active"
                                                             src="{{ asset('storage/logo/' . $siteIdentity->logo_black) }}"
+                                                            data-bs-slide-to="0" width="300" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="disabledInput">Advertisement</label>
+                                                    <div>
+                                                        <img class="w-90 active"
+                                                            src="{{ asset('storage/ad/' . $siteIdentity->ad) }}"
                                                             data-bs-slide-to="0" width="300" >
                                                     </div>
                                                 </div>

@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FormOrderController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LegalController;
 use App\Http\Controllers\SectionBannerController;
 use App\Http\Controllers\SiteIdentityController;
 use App\Http\Controllers\WelcomeController;
@@ -24,6 +27,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [WelcomeController::class, 'show'])->name('welcome');
 Route::get('product', [ProductController::class, 'showListProduct'])->name('showListProduct');
+Route::get('privacy', [LegalController::class, 'listPrivacy'])->name('privacy');
+Route::get('tos', [LegalController::class, 'listTos'])->name('tos');
+Route::get('about', [AboutUsController::class, 'show'])->name('about');
 
 
 Auth::routes([
@@ -39,4 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/pricing', PricingController::class);
     Route::resource('admin/content', ContentController::class);
     Route::resource('admin/product', ProductController::class);
+    Route::resource('admin/legal', LegalController::class);
+    Route::resource('admin/faq', FaqController::class);
+    Route::resource('admin/form', FormOrderController::class);
 });

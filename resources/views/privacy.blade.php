@@ -10,53 +10,19 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<x-Navbar :logo="$identities->logo_black"/>
+<x-Navbar :logo="$identities->logo_black" />
 
-
-<section class="px-6 xl:px-32 text-center flex flex-col justify-center items-center mb-24">
-    <h1 class="font-bold text-2xl md:text-4xl">Our <span class="text-red-600">Product</span></h1>
-    <section class="flex justify-center items-center mb-24 mx-6">
-        <div class="flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-8 flex-col md:flex-row flex-wrap">
-            @foreach ($products as $product)
-            @php
-            // Format the price
-            $formattedNumber = number_format($product->price);
-
-            // Add the Rupiah symbol
-            $formattedNumber = 'Rp ' . $formattedNumber;
-            @endphp
-            <div
-                class="relative flex max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md grow">
-                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
-                    <img class="object-cover w-full"
-                         src="{{ asset('storage/product/' . $product->image) }}"
-                         alt="product image"/>
-                </a>
-                <div class="mt-4 px-5 pb-5">
-                    <a href="#">
-                        <h5 class="text-xl tracking-tight text-slate-900 text-left">{{ $product->name }}</h5>
-                    </a>
-                    <div class="mt-2 mb-5 flex items-center justify-between">
-                        <p>
-                            <span class="text-3xl font-bold text-slate-900">{{ $formattedNumber }}</span>
-                            <span class="text-sm text-slate-900">/ {{ $product->piece }}</span>
-                        </p>
-                    </div>
-                    <a href="https://wa.me/{{ $identities->phone }}?text=Tentang produk {{$product->name}} dengan harga {{ $formattedNumber }}"
-                       class="flex items-center justify-center rounded-md bg-red-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24"
-                             stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                        Chat Kami
-                    </a>
-                </div>
+<main class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <section>
+        <h1 class="text-red-600 font-bold text-2xl md:text-4xl text-center my-16">KEBIJAKAN PRIVASI</h1>
+        @foreach ($privacies as $privacy)
+            <div class="*:font-sans mb-6">
+                <h2 class="font-bold text-xl mb-4">{{ $loop->iteration . '. ' . $privacy->title }}</h2>
+                <pre class="whitespace-pre-wrap text-gray-600">{{ $privacy->description }}</pre>
             </div>
-            @endforeach
-        </div>
+        @endforeach
     </section>
-</section>
+</main>
 
 <footer>
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">

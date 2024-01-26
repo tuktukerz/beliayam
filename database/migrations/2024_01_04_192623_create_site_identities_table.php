@@ -26,6 +26,7 @@ return new class extends Migration {
             $table->text('footer_desc');
             $table->string('logo_light');
             $table->string('logo_black');
+            $table->string('ad')->nullable();
             $table->timestamps();
         });
     }

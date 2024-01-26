@@ -1,4 +1,4 @@
-@section('title', 'Banner - Jual Ayam.com')
+@section('title', 'Banner - beliayam.com')
 @extends('layouts.admin.master')
 @section('banner', 'active')
 @section('content')
@@ -9,7 +9,7 @@
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>Detail Section Banner</h3>
                     <p class="text-subtitle text-muted">
-                        Berikut adalah detail dari site jual ayam.com
+                        Berikut adalah detail dari site beliayam.com
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">

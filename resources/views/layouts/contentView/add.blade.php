@@ -1,4 +1,4 @@
-@section('title', 'Banner - Jual Ayam.com')
+@section('title', 'Content - beliayam.com')
 @extends('layouts.admin.master')
 @section('contentView', 'active')
 @section('content')
@@ -50,7 +50,7 @@
                                                     </select>
                                                 </fieldset>
                                             </div>
-                                            @error('value')
+                                            @error('type')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
