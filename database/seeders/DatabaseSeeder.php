@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             FormOrderSeeder::class,
             LegalSeeder::class,
+            ProductSeeder::class,
             PricingsSeeder::class,
             SectionBannerSeeder::class,
             SeoSeeder::class,
