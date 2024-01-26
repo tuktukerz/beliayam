@@ -14,7 +14,7 @@ class FormOrderController extends Controller
     public function index()
     {
         $formOrder = FormOrder::latest()->first();
-        
+
 
         // Create a new DOMDocument
         $dom = new DOMDocument;
@@ -74,7 +74,7 @@ class FormOrderController extends Controller
         $formOrder = FormOrder::findOrFail($id);
         $formOrder->update($request->all());
 
-        return redirect()->route('form.index');
+        return redirect()->route('form.index')->with('success', 'Link form order Berhasil diupdate !');;
     }
 
     /**
