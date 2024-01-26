@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Pricing;
 use App\Models\SectionBanner;
+use App\Models\Seo;
 use App\Models\SiteIdentity;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class WelcomeController extends Controller
 {
     public function show()
     {
+        $seo = Seo::where('page', 'home')->first();
         $priceAverageByisland = Pricing::select('island', DB::raw('AVG(price) as total_price'), 'color')
             ->groupBy('island')
             ->groupBy('color')
@@ -51,6 +51,6 @@ class WelcomeController extends Controller
 
         $sectionBanner = SectionBanner::latest()
             ->first();
-        return view('welcome', compact('sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'howto', 'customers', 'identities'));
+        return view('welcome', compact('seo', 'sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'howto', 'customers', 'identities'));
     }
 }

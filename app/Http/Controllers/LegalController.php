@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Legal;
+use App\Models\Seo;
 use App\Models\SiteIdentity;
 use Illuminate\Http\Request;
 
@@ -10,18 +11,20 @@ class LegalController extends Controller
 {
     public function listPrivacy()
     {
+        $seo = Seo::where('page', 'privacy')->first();
         $privacies = Legal::get()->where('type', 'privacy');
         $identities = SiteIdentity::latest()->first();
 
-        return view('privacy', compact('privacies', 'identities'));
+        return view('privacy', compact('seo', 'privacies', 'identities'));
     }
 
     public function listTos()
     {
+        $seo = Seo::where('page', 'tos')->first();
         $tos = Legal::get()->where('type', 'tos');
         $identities = SiteIdentity::latest()->first();
 
-        return view('tos', compact('tos', 'identities'));
+        return view('tos', compact('seo', 'tos', 'identities'));
     }
 
     /**
@@ -34,7 +37,7 @@ class LegalController extends Controller
         return view('layouts.legal.index', compact(['legals']));
     }
 
-    /** 
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

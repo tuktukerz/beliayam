@@ -6,6 +6,7 @@ use App\Models\Content;
 use App\Models\Pricing;
 use App\Models\Product;
 use App\Models\SectionBanner;
+use App\Models\Seo;
 use App\Models\SiteIdentity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -120,9 +121,10 @@ class ProductController extends Controller
 
     public function showListProduct()
     {
+        $seo = Seo::where('page', 'product')->first();
         $products = Product::all();
         $identities = SiteIdentity::latest()->first();
 
-        return view('product_list', compact('products', 'identities'));
+        return view('product_list', compact('seo', 'products', 'identities'));
     }
 }

@@ -16,7 +16,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="/">Content</a>
+                                <a href="{{ route('content.index') }}">Content</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Tambah Content
@@ -34,7 +34,7 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <form action="{{route('content.store')}}" class="form" method="post"
-                                    enctype="multipart/form-data">
+                                      enctype="multipart/form-data">
                                     @csrf
                                     <div class="col">
                                         <div class="col-md-6 col-12">
@@ -58,7 +58,7 @@
                                             <div class="form-group">
                                                 <label>Title</label>
                                                 <input type="text" class="form-control" placeholder="Title"
-                                                    name="title" value="{{old('title')}}">
+                                                       name="title" value="{{old('title')}}">
                                             </div>
                                             @error('title')
                                             <p class="text-danger">{{ $message }}</p>
@@ -67,8 +67,9 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <input type="text" class="form-control" placeholder="Description" name="description"
-                                                    value="{{old('description')}}">
+                                                <input type="text" class="form-control" placeholder="Description"
+                                                       name="description"
+                                                       value="{{old('description')}}">
                                             </div>
                                             @error('description')
                                             <p class="text-danger">{{ $message }}</p>
@@ -78,7 +79,7 @@
                                             <div class="form-group mb-3">
                                                 <label>Image</label>
                                                 <input class="form-control form-control" type="file" name="imageFile"
-                                                    accept="image/jpeg,image/jpg,image/png,">
+                                                       accept="image/jpeg,image/jpg,image/png,">
                                             </div>
                                             @error('imageFile')
                                             <p class="text-danger">{{ $message }}</p>
@@ -87,7 +88,8 @@
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Simpan Data</button>
                                             <button type="reset"
-                                                class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                    class="btn btn-light-secondary me-1 mb-1">Reset
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
