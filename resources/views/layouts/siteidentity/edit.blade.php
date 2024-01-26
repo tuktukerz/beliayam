@@ -16,7 +16,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{ route('siteidentity.index') }}">Home</a>
+                                <a href="{{ route('site-identity.show', $siteIdentity->id) }}">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Edit Site Identity
