@@ -50,10 +50,10 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Piece</th>
-                            <th>Image</th>
+                            <th>Nama Produk</th>
+                            <th>Harga</th>
+                            <th>Satuan</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
