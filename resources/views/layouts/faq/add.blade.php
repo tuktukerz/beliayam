@@ -1,6 +1,6 @@
 @section('title', 'FAQ - beliayam.com')
 @extends('layouts.admin.master')
-@section('legal', 'active')
+@section('faq', 'active')
 @section('content')
 <div id="main-content">
     <div class="page-heading">
@@ -33,7 +33,7 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <form action="{{route('legal.store')}}" class="form" method="post"
+                                <form action="{{route('faq.store')}}" class="form" method="post"
                                       enctype="multipart/form-data">
                                     @csrf
                                     <div class="col">

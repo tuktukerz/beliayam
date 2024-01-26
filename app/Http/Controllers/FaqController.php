@@ -32,7 +32,7 @@ class FaqController extends Controller
     {
         Faq::create($request->all());
 
-        return redirect()->route('faq.index');
+        return redirect()->route('faq.index')->with('success', 'FAQ Berhasil dibuat !');;
     }
 
     /**
@@ -58,7 +58,7 @@ class FaqController extends Controller
     {
         $faq->update($request->all());
 
-        return redirect()->route('faq.index');
+        return redirect()->route('faq.index')->with('success', 'FAQ Berhasil diupdate !');;
     }
 
     /**
@@ -68,6 +68,6 @@ class FaqController extends Controller
     {
         $faq->delete();
 
-        return redirect()->route('faq.index');
+        return redirect()->route('faq.index')->with('success', 'FAQ Berhasil dihapus !');;
     }
 }

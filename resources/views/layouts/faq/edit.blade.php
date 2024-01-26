@@ -33,65 +33,43 @@
                                 <form action="{{ route('faq.update', $faq->id) }}" class="form" method="post"
                                       enctype="multipart/form-data">
                                     @csrf @method('PUT')
-                                    <div class="col">
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label>Type</label>
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" name="type"
-                                                            required>
-                                                        <option value="">Select Type</option>
-                                                        <option value="tos" @selected($faq->type == 'tos')>Syarat &
-                                                            Ketentuan Pengguna
-                                                        </option>
-                                                        <option value="privacy" @selected($faq->type ==
-                                                            'privacy')>Kebijakan
-                                                            Privasi
-                                                        </option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
-                                            @error('type')
-                                            <p class="text-danger">{{ $message }}</p>
-                                            @enderror
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Question</label>
+                                            <input type="text" class="form-control" placeholder="Question"
+                                                   name="question" value="{{ $faq->question }}">
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label>Question</label>
-                                                <input type="text" class="form-control" placeholder="Question"
-                                                       name="question" value="{{ $faq->question }}">
-                                            </div>
-                                            @error('question')
-                                            <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label>Answer</label>
-                                                <textarea class="form-control" placeholder="Answer" name="answer"
-                                                          rows="5">{{ $faq->answer }}</textarea>
-                                            </div>
-                                            @error('answer')
-                                            <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="col-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">Ubah Data</button>
-                                            <button type="reset"
-                                                    class="btn btn-light-secondary me-1 mb-1">Reset
-                                            </button>
-                                        </div>
+                                        @error('question')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                </form>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Answer</label>
+                                            <textarea class="form-control" placeholder="Answer" name="answer"
+                                                      rows="5">{{ $faq->answer }}</textarea>
+                                        </div>
+                                        @error('answer')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">Ubah Data</button>
+                                        <button type="reset"
+                                                class="btn btn-light-secondary me-1 mb-1">Reset
+                                        </button>
+                                    </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
     </div>
+    </section>
+</div>
 
-    <script src="{{ asset('dist') }}/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
-    <script src="{{ asset('dist') }}/assets/js/pages/form-select.js"></script>
+<script src="{{ asset('dist') }}/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+<script src="{{ asset('dist') }}/assets/js/pages/form-select.js"></script>
 
-    @endsection
+@endsection
