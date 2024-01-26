@@ -55,7 +55,7 @@ class SeoController extends Controller
     {
         $seo->update($request->all());
 
-        return redirect()->route('seo.index');
+        return redirect()->route('seo.index')->with('success', 'SE0 Page ' . $seo->page . ' Berhasil diupdate !');;
     }
 
     /**
