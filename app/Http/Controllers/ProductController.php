@@ -56,7 +56,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Product ' . $request->name . ' Berhasil dibuat   !');;
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductController extends Controller
 
         $product->update($request->except(['productImage']));
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Product ' . $product->name . ' Berhasil diubah !');;
     }
 
     /**
@@ -116,7 +116,7 @@ class ProductController extends Controller
         // Delete the content
         $product->delete();
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Product ' . $product->name . ' Berhasil dihapus !');;
     }
 
     public function showListProduct()
