@@ -4,6 +4,12 @@
 @section('content')
 <div id="main-content">
     <div class="page-heading">
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible show fade">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
