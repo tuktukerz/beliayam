@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SiteIdentitiesSeeder extends Seeder
 {
@@ -13,6 +14,16 @@ class SiteIdentitiesSeeder extends Seeder
      */
     public function run(): void
     {
+        $adFiles = Storage::files('public/ad');
+
+        if (!empty($adFiles)) {
+            // Assuming you want to get the first file
+            $ad = $adFiles[0];
+
+            $adFileName = pathinfo($ad, PATHINFO_FILENAME);
+            $adFileExtension = pathinfo($ad, PATHINFO_EXTENSION);
+        }
+
         DB::table('site_identities')->insert([
             'title' => 'BANTU PENUHI PROTEINMU SETIAP HARI, MASYARAKAT SEHAT DAN CERDAS BEBAS STUNTING',
             'description' => 'Belanja Kebutuhan Ayam dan Telur Untuk Usaha dan Konsumsi Harian Semakin Mudah dan Hemat',
@@ -28,6 +39,7 @@ class SiteIdentitiesSeeder extends Seeder
             'footer_desc' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est laborum voluptate obcaecati consequatur blanditiis autem quod adipisci neque iure suscipit.',
             'logo_light' => 'logo_light.png', // assuming the logo format is png
             'logo_black' => 'logo_black.png', // assuming the logo format is png
+            'ad' => $adFileName . '.' . $adFileExtension ?? null,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
