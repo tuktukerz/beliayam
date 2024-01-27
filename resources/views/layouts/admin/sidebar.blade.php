@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item @yield('mrchnt')">
-                        <a href="{{ route('site-identity.show', '1') }}" class='sidebar-link'>
+                        <a href="{{ route('site-identity.index') }}" class='sidebar-link'>
                             <i class="bi bi-house-door-fill"></i>
                             <span>Site Identity</span>
                         </a>

@@ -13,7 +13,9 @@ class SiteIdentityController extends Controller
      */
     public function index()
     {
-        //
+        $siteIdentity = SiteIdentity::latest()->first();
+
+        return view('layouts.siteidentity.index', compact('siteIdentity'));
     }
 
     /**
@@ -88,7 +90,7 @@ class SiteIdentityController extends Controller
 
         $siteIdentity->update($request->except(['logoBlack', 'logoLight', 'adFile']));
 
-        return redirect()->route('site-identity.show', $siteIdentity->id);
+        return redirect()->route('site-identity.index', $siteIdentity->id);
     }
 
     /**
