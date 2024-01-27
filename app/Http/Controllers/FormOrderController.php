@@ -13,14 +13,14 @@ class FormOrderController extends Controller
      */
     public function index()
     {
-        $formOrder = FormOrder::latest()->first();
+        $form = FormOrder::latest()->first();
 
 
         // Create a new DOMDocument
         $dom = new DOMDocument;
 
         // Load the HTML string
-        $dom->loadHTML($formOrder->link);
+        $dom->loadHTML($form->link);
 
         // Get the first iframe element
         $iframe = $dom->getElementsByTagName('iframe')->item(0);
@@ -28,9 +28,9 @@ class FormOrderController extends Controller
         // Get the src, width, and height attributes
         $src = $iframe->getAttribute('src');
 
-        $formOrder['link'] = $src;
+        $form['link'] = $src;
 
-        return view('layouts.form.index', compact(['formOrder']));
+        return view('layouts.form.index', compact(['form']));
     }
 
     /**
@@ -52,27 +52,25 @@ class FormOrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(FormOrder $form)
     {
-        return redirect()->route('form.index');
+        return view('layouts.form.index', compact(['form']));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(FormOrder $form)
     {
-        $formOrder = FormOrder::findOrFail($id);
-        return view('layouts.form.edit', compact(['formOrder']));
+        return view('layouts.form.edit', compact(['form']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, FormOrder $form)
     {
-        $formOrder = FormOrder::findOrFail($id);
-        $formOrder->update($request->all());
+        $form->update($request->all());
 
         return redirect()->route('form.index')->with('success', 'Link form order Berhasil diupdate !');;
     }
@@ -80,7 +78,7 @@ class FormOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(FormOrder $formOrder)
+    public function destroy(FormOrder $form)
     {
         return redirect()->route('form.index');
     }

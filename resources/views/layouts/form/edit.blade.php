@@ -33,7 +33,7 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{ route('form.update', $formOrder->id) }}" method="POST"
+                                <form class="form" action="{{ route('form.update', $form->id) }}" method="POST"
                                       enctype="multipart/form-data">
                                     @csrf @method('PUT')
                                     <div class="row">
@@ -41,7 +41,7 @@
                                             <div class="form-group">
                                                 <label>Google Form Embed HTML</label>
                                                 <textarea type="text" class="form-control" name="link"
-                                                          placeholder="Google Form Link" rows="5" required>{{ $formOrder->link }}</textarea>
+                                                          placeholder="Google Form Link" rows="5" required>{{ $form->link }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-start mt-3">

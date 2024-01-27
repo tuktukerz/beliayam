@@ -40,13 +40,13 @@
                         <div class="form-group">
                             <label for="disabledInput">Google Form Embed HTML</label>
                             <div>
-                                <a href="{{ $formOrder?->link }}" target="_blank">
-                                    {{ $formOrder?->link }}
+                                <a href="{{ $form?->link }}" target="_blank">
+                                    {{ $form?->link }}
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <a href="{{ route('form.edit', $formOrder->id) }}" class="btn btn-primary me-1 mb-1">Ubah
+                    <a href="{{ route('form.edit', $form->id) }}" class="btn btn-primary me-1 mb-1">Ubah
                         Data</a>
                 </div>
             </div>
