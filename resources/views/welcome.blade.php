@@ -35,7 +35,7 @@
             </div>
             <!-- Modal body -->
             <div class="space-y-6 p-6 flex" id="ads">
-                <img src="{{ asset('storage/ad/' . $identities->ad) }}" class="max-h-[700px]"/>
+                <img src="{{ asset('storage/ad/' . $identities->ad . '?ver=' . strtotime($identities->updated_at)) }}" class="max-h-[700px]"/>
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@
         <!-- Item 1 -->
         @foreach($sectionBanner as $banner)
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="{{ asset('storage/banner/' . $banner->image) }}"
+            <img src="{{ asset('storage/banner/' . $banner->image . '?ver=' . strtotime($banner->updated_at)) }}"
                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         @endforeach
@@ -170,7 +170,7 @@
         @foreach ($values as $value)
         <div
             class="max-w-96 text-black text-center flex flex-col justify-start items-center group shadow-xl p-6 rounded-xl">
-            <img src="{{ asset('storage/value/' . $value->image) }}"
+            <img src="{{ asset('storage/value/' . $value->image . '?ver=' . strtotime($value->updated_at)) }}"
                  class="max-h-60 md:max-w-full object-contain group-hover:scale-105 transition rounded-xl"
                  alt="product value"/>
             <div class="bg-gray-200 h-[0.5px] w-full my-6"></div>
@@ -190,7 +190,7 @@
     <div
         class="flex flex-wrap p-6 md:p-16 m-6 bg-gray-100 justify-center items-center gap-12 rounded-xl max-w-7xl border-2">
         @foreach ($supports as $support)
-        <img src="{{ asset('storage/support/' . $support->image) }}"
+        <img src="{{ asset('storage/support/' . $support->image . '?ver=' . strtotime($support->updated_at)) }}"
              class="max-h-28 max-w-28 object-contain hover:scale-105 transition" alt="Supporter"/>
         @endforeach
     </div>
@@ -230,7 +230,7 @@
 <section class="px-6 xl:px-32 text-center flex flex-col justify-center items-center mb-24">
     <h1 class="font-bold text-2xl md:text-4xl mb-4 md:mb-12">HOW TO <span class="text-red-600">ORDER</span></h1>
     <p class="max-w-3xl text-sm md:text-base text-gray-500 mb-6">{{ $howto->description }}</p>
-    <img src="{{ asset('storage/howto/' . $howto->image) }}" class="object-contain transition"
+    <img src="{{ asset('storage/howto/' . $howto->image . '?ver=' . strtotime($howto->updated_at)) }}" class="object-contain transition"
          alt="How To Guide"/>
 </section>
 @endif
@@ -271,7 +271,7 @@ $loopCount = ceil(count($customers) / 4);
                     <div
                         class="flex justify-start items-center gap-6 {{ $border }} border-gray-300 p-4 lg:p-12">
                         @if ($customer->image)
-                        <img src="{{ asset('storage/customer/' . $customer->image) }}"
+                        <img src="{{ asset('storage/customer/' . $customer->image . '?ver=' . strtotime($customer->updated_at)) }}"
                              alt="Customer"
                              class="h-12 w-12 xl:h-24 xl:w-24 max-h-32 rounded-full object-contain">
                         @endif
@@ -331,7 +331,7 @@ $loopCount = ceil(count($customers) / 4);
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse mb-4">
-                    <img src="{{ asset('storage/logo/' . $identities->logo_black) }}" class="h-12"
+                    <img src="{{ asset('storage/logo/' . $identities->logo_black . '?ver=' . strtotime($identities->updated_at)) }}" class="h-12"
                          alt="Beli Ayam Logo"/>
                 </a>
                 <p class="text-gray-600 text-sm max-w-md text-justify">{{ $identities->footer_desc }}</p>

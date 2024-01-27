@@ -132,7 +132,7 @@
                                                     <label for="disabledInput">Logo Light</label>
                                                     <div class="bg-secondary col-6 rounded">
                                                         <img class="w-90 active"
-                                                            src="{{ asset('storage/logo/' . $siteIdentity->logo_light) }}"
+                                                            src="{{ asset('storage/logo/' . $siteIdentity->logo_light . '?ver=' . strtotime($siteIdentity->updated_at)) }}"
                                                             data-bs-slide-to="0" width="300" >
                                                     </div>
                                                 </div>
@@ -142,7 +142,7 @@
                                                     <label for="disabledInput">Logo Black</label>
                                                     <div>
                                                         <img class="w-90 active"
-                                                            src="{{ asset('storage/logo/' . $siteIdentity->logo_black) }}"
+                                                            src="{{ asset('storage/logo/' . $siteIdentity->logo_black . '?ver=' . strtotime($siteIdentity->updated_at)) }}"
                                                             data-bs-slide-to="0" width="300" >
                                                     </div>
                                                 </div>
@@ -152,7 +152,7 @@
                                                     <label for="disabledInput">Advertisement</label>
                                                     <div>
                                                         <img class="w-90 active"
-                                                            src="{{ asset('storage/ad/' . $siteIdentity->ad) }}"
+                                                            src="{{ asset('storage/ad/' . $siteIdentity->ad . '?ver=' . strtotime($siteIdentity->updated_at)) }}"
                                                             data-bs-slide-to="0" width="300" >
                                                     </div>
                                                 </div>

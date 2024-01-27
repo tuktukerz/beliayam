@@ -51,7 +51,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>
                                 <img class="img-fluid"
-                                     src="{{ asset('storage/banner/' . $item->image) }}"
+                                     src="{{ asset('storage/banner/' . $item->image . '?ver=' . strtotime($item->updated_at)) }}"
                                      data-bs-slide-to="0" width="300" height="300">
                             </td>
                             <td>

@@ -81,7 +81,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-6 col-12">
-                                            <img src="{{ asset('storage/' . $content->type . '/' . $content->image) }}">
+                                            <img src="{{ asset('storage/' . $content->type . '/' . $content->image . '?ver=' . strtotime($content->updated_at)) }}">
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-3">

@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <img
-                                            src="{{ asset('storage/product/' . $product->image) }}">
+                                            src="{{ asset('storage/product/' . $product->image . '?ver=' . strtotime($product->updated_at)) }}">
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group mb-3">

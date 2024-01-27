@@ -32,7 +32,7 @@
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse mb-4">
-                    <img src="{{ asset('storage/logo/' . $identities->logo_black) }}" class="h-12"
+                    <img src="{{ asset('storage/logo/' . $identities->logo_black . '?ver=' . strtotime($identities->updated_at)) }}" class="h-12"
                          alt="Beli Ayam Logo"/>
                 </a>
                 <p class="text-gray-600 text-sm max-w-md text-justify">{{ $identities->footer_desc }}</p>

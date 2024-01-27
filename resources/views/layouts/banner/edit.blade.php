@@ -41,7 +41,7 @@
                                             <div class="form-group mb-3">
                                                 <label>Image</label><br>
                                                 <img class="img-fluid"
-                                                     src="{{ asset('storage/banner/' . $banner->image) }}"
+                                                     src="{{ asset('storage/banner/' . $banner->image . '?ver=' . strtotime($banner->updated_at)) }}"
                                                      data-bs-slide-to="0" width="300" height="300">
                                             </div>
                                             <div class="form-group mb-3">

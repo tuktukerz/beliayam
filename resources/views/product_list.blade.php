@@ -33,7 +33,7 @@
                 class="relative flex max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md grow">
                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
                     <img class="object-cover w-full"
-                         src="{{ $product->image ? asset('storage/product/' . $product->image) : asset('storage/product/default-product.jpg') }}"
+                         src="{{ $product->image ? asset('storage/product/' . $product->image . '?ver=' . strtotime($product->updated_at)) : asset('storage/product/default-product.jpg') }}"
                          alt="product image"/>
                 </a>
                 <div class="mt-4 px-5 pb-5">
@@ -67,7 +67,7 @@
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse mb-4">
-                    <img src="{{ asset('storage/logo/' . $identities->logo_black) }}" class="h-12"
+                    <img src="{{ asset('storage/logo/' . $identities->logo_black . '?ver=' . strtotime($identities->updated_at)) }}" class="h-12"
                          alt="Beli Ayam Logo"/>
                 </a>
                 <p class="text-gray-600 text-sm max-w-md text-justify">{{ $identities->footer_desc }}</p>
