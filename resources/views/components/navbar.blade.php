@@ -4,7 +4,7 @@
             <img src="{{ asset('storage/logo/' . $logo) }}" class="h-6 md:h-12" alt="Beli Ayam Logo"/>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <a href="https://wa.me/085155217090?text=Halo saya ingin bertanya mengenai" type="button"
+            <a href="https://wa.me/{{ $phone }}?text=Halo saya ingin bertanya mengenai" type="button" target="_blank"
                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Whatsapp
             </a>
@@ -22,9 +22,9 @@
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <x-navlink text="home" link="/"/>
-                <x-navlink text="product" link="product"/>
-                <x-navlink text="about" link="about"/>
-                <x-navlink text="order" link="about#form_order"/>
+                <x-navlink text="produk" link="product"/>
+                <x-navlink text="tentang kami" link="about"/>
+                <x-navlink text="pemesanan" link="order"/>
             </ul>
         </div>
     </div>

@@ -37,20 +37,17 @@
                     <img src="{{ asset('storage/logo/' . $identities->logo_black . '?ver=' . strtotime($identities->updated_at)) }}" class="h-12"
                          alt="Beli Ayam Logo"/>
                 </a>
-                <p class="text-gray-600 text-sm max-w-md text-justify">{{ $identities->footer_desc }}</p>
+                <p class="text-gray-600 text-sm max-w-md text-justify pr-4">{{ $identities->footer_desc }}</p>
             </div>
             <div class="flex gap-8 sm:gap-16 flex-wrap">
                 <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase text-black">Links</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href={{route('welcome')}} class="hover:underline ">Home</a>
+                            <a href={{ route('about') }} class="hover:underline">Tentang Kami</a>
                         </li>
                         <li class="mb-4">
-                            <a href={{route('showListProduct')}} class="hover:underline">Products</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href={{ route('about') }} class="hover:underline">About Us</a>
+                            <a href={{ route('faq') }} class="hover:underline">FAQ</a>
                         </li>
                     </ul>
                 </div>
@@ -59,17 +56,17 @@
                     <h2 class="mb-6 text-sm font-semibold uppercase text-black">Legal</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href={{ route('tos')}} class="hover:underline ">Ketentuan Pengguna
+                            <a href={{ route('tos') }} class="hover:underline ">Ketentuan Pengguna
                             </a>
                         </li>
                         <li class="mb-4">
-                            <a href={{route('privacy')}} class="hover:underline">Kebijakan Privasi</a>
+                            <a href={{ route('privacy') }} class="hover:underline">Kebijakan Privasi</a>
                         </li>
                     </ul>
                 </div>
                 <div class="hidden md:block w-[1px] h-full bg-gray-200"></div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase text-black">Contacts</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase text-black">Kontak Kami</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
                             <div class="group flex items-center gap-2">
@@ -98,8 +95,8 @@
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="/"
-                                                                                            class="hover:underline">beliayam.com™</a>. All Rights Reserved.
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a
+                    href="/" class="hover:underline">beliayam.com™</a>. All Rights Reserved.
             </span>
         </div>
     </div>

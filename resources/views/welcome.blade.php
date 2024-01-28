@@ -41,7 +41,7 @@
     </div>
 </div>
 
-<x-Navbar :logo="$identities->logo_black"/>
+<x-Navbar :logo="$identities->logo_black" :phone="$identities->phone"/>
 
 <!-- CARROUSEL    -->
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
@@ -232,7 +232,7 @@ $loopCount = ceil(count($customers) / 4);
 <!-- CARROUSEL    -->
 <section class="bg-gray-200 py-8">
     <h1 class="font-bold text-2xl md:text-4xl text-center">HAPPY <span class="text-red-600">CUSTOMER</span></h1>
-    <h2 class="text-gray-600 text-sm md:text-lg text-center">More Than {{ count($customers) }}+ UMKM</h2>
+    <h2 class="text-gray-600 text-sm md:text-lg text-center">Lebih Dari {{ count($customers) }}+ UMKM</h2>
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative overflow-hidden h-[700px] sm:h-[600px]">
@@ -324,20 +324,17 @@ $loopCount = ceil(count($customers) / 4);
                     <img src="{{ asset('storage/logo/' . $identities->logo_black . '?ver=' . strtotime($identities->updated_at)) }}" class="h-12"
                          alt="Beli Ayam Logo"/>
                 </a>
-                <p class="text-gray-600 text-sm max-w-md text-justify">{{ $identities->footer_desc }}</p>
+                <p class="text-gray-600 text-sm max-w-md text-justify pr-4">{{ $identities->footer_desc }}</p>
             </div>
             <div class="flex gap-8 sm:gap-16 flex-wrap">
                 <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase text-black">Links</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href={{ route('welcome') }} class="hover:underline ">Home</a>
+                            <a href={{ route('about') }} class="hover:underline">Tentang Kami</a>
                         </li>
                         <li class="mb-4">
-                            <a href={{ route('showListProduct') }} class="hover:underline">Products</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href={{ route('about') }} class="hover:underline">About Us</a>
+                            <a href={{ route('faq') }} class="hover:underline">FAQ</a>
                         </li>
                     </ul>
                 </div>
@@ -356,7 +353,7 @@ $loopCount = ceil(count($customers) / 4);
                 </div>
                 <div class="hidden md:block w-[1px] h-full bg-gray-200"></div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase text-black">Contacts</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase text-black">Kontak Kami</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
                             <div class="group flex items-center gap-2">
