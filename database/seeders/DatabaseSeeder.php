@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             SectionBannerSeeder::class,
             SeoSeeder::class,
             SiteIdentitiesSeeder::class,
+            AboutSeeder::class,
         ]);
 
         User::create([

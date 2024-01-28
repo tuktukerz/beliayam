@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
@@ -31,9 +32,9 @@ Route::get('/', [WelcomeController::class, 'show'])->name('welcome');
 Route::get('product', [ProductController::class, 'showListProduct'])->name('showListProduct');
 Route::get('privacy', [LegalController::class, 'listPrivacy'])->name('privacy');
 Route::get('tos', [LegalController::class, 'listTos'])->name('tos');
-Route::get('about', [AboutUsController::class, 'show'])->name('about');
-Route::get('order', [FormOrderController::class, 'formView']);
-Route::get('faq', [FaqController::class, 'faqView']);
+Route::get('about', [AboutController::class, 'aboutView'])->name('about');
+Route::get('order', [FormOrderController::class, 'formView'])->name('order');
+Route::get('faq', [FaqController::class, 'faqView'])->name('faq');
 
 
 Auth::routes([
@@ -53,4 +54,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/faq', FaqController::class);
     Route::resource('admin/form', FormOrderController::class);
     Route::resource("admin/seo", SeoController::class);
+    Route::resource("admin/about", AboutController::class);
 });

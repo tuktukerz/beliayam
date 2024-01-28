@@ -106,6 +106,12 @@
                             <span>SEO</span>
                         </a>
                     </li>
+                    <li class="sidebar-item @yield('seo')">
+                        <a href="{{ route('about.index') }}" class='sidebar-link'>
+                            <i class="bi bi-card-text"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item">
                         <a href="{{ route('welcome') }}" class='sidebar-link' target="_blank">
                             <i class="bi bi-sign-turn-left"></i>
