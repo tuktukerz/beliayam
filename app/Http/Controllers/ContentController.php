@@ -95,9 +95,11 @@ class ContentController extends Controller
      */
     public function destroy(Content $content)
     {
+        $path = 'public/' . $content->type . '/';
+
         // Delete the old banner if it exists
         if ($content->image) {
-            Storage::delete('public/customer/' . $content->image);
+            Storage::delete($path . $content->image);
         }
 
         // Delete the content
