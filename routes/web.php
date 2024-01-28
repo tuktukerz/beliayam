@@ -13,6 +13,7 @@ use App\Http\Controllers\LegalController;
 use App\Http\Controllers\SectionBannerController;
 use App\Http\Controllers\SiteIdentityController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -31,7 +32,8 @@ Route::get('product', [ProductController::class, 'showListProduct'])->name('show
 Route::get('privacy', [LegalController::class, 'listPrivacy'])->name('privacy');
 Route::get('tos', [LegalController::class, 'listTos'])->name('tos');
 Route::get('about', [AboutUsController::class, 'show'])->name('about');
-Route::get('order', [FormOrderController::class, 'formView'])->name('order');
+Route::get('order', [FormOrderController::class, 'formView']);
+Route::get('faq', [FaqController::class, 'faqView']);
 
 
 Auth::routes([

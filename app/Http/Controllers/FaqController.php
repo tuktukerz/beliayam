@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use App\Models\SiteIdentity;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
+    public function faqView() {
+        $faqs = Faq::all();
+        $identities = SiteIdentity::latest()->first();
+
+        return view('faq', compact(['faqs', 'identities']));
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -13,9 +13,8 @@ class AboutUsController extends Controller
     public function show()
     {
         $seo = Seo::where('page', 'about')->first();
-        $faqs = Faq::all();
         $identities = SiteIdentity::latest()->first();
 
-        return view('about', compact(['seo', 'faqs', 'identities']));
+        return view('about', compact(['seo', 'identities']));
     }
 }
