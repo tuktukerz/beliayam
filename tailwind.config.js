@@ -7,7 +7,11 @@ module.exports = {
         "./node_modules/flowbite/**/*.js",
     ],
     theme: {
-        extend: {},
+        extend: {
+            gridTemplateColumns: {
+                'fit': 'repeat(auto-fit, minmax(250px, max-content))'
+            }
+        },
     },
     plugins: [require("flowbite/plugin")],
     safelist: [

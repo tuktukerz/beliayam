@@ -18,9 +18,9 @@
 
 <section class="px-6 xl:px-32 text-center flex flex-col justify-center items-center mb-24">
     <h1 class="font-bold text-2xl md:text-4xl">Our <span class="text-red-600">Product</span></h1>
-    <section class="flex justify-center items-center mb-24 mx-6">
+    <section class="mb-24 mx-6 w-full">
         <div
-            class="flex rounded-3xl lg:rounded-[6.5rem] overflow-hidden md:px-16 py-6 gap-8 flex-col md:flex-row flex-wrap">
+            class="rounded-3xl lg:rounded-[6.5rem] overflow-hidden py-6 gap-8 grid grid-cols-fit justify-center">
             @foreach ($products as $product)
             @php
             // Format the price
