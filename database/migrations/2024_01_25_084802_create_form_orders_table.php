@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('form_orders', function (Blueprint $table) {
             $table->id();
-            $table->text('link');
+            $table->text('link')->nullable();
             $table->timestamps();
         });
     }

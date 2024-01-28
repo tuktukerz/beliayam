@@ -12,10 +12,10 @@ return new class extends Migration {
     {
         Schema::create('seos', function (Blueprint $table) {
             $table->id();
-            $table->string("page");
-            $table->string("title");
-            $table->text("description");
-            $table->string("keywords");
+            $table->string("page")->nullable();
+            $table->string("title")->nullable();
+            $table->text("description")->nullable();
+            $table->string("keywords")->nullable();
             $table->timestamps();
         });
     }

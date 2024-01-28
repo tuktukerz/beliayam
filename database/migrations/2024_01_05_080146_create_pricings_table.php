@@ -12,11 +12,11 @@ return new class extends Migration {
     {
         Schema::create('pricings', function (Blueprint $table) {
             $table->id();
-            $table->string('province');
-            $table->string('island');
-            $table->bigInteger('price');
-            $table->string('hc_key');
-            $table->string('color');
+            $table->string('province')->nullable();
+            $table->string('island')->nullable();
+            $table->bigInteger('price')->nullable();
+            $table->string('hc_key')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }

@@ -12,20 +12,20 @@ return new class extends Migration {
     {
         Schema::create('site_identities', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('address');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('google_play');
-            $table->string('app_store');
-            $table->string('instagram');
-            $table->string('twitter');
-            $table->string('google_map');
-            $table->string('youtube');
-            $table->text('footer_desc');
-            $table->string('logo_light');
-            $table->string('logo_black');
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('google_play')->nullable();
+            $table->string('app_store')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('google_map')->nullable();
+            $table->string('youtube')->nullable();
+            $table->text('footer_desc')->nullable();
+            $table->string('logo_light')->nullable();
+            $table->string('logo_black')->nullable();
             $table->string('ad')->nullable();
             $table->timestamps();
         });
