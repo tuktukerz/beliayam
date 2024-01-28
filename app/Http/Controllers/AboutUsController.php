@@ -15,8 +15,7 @@ class AboutUsController extends Controller
         $seo = Seo::where('page', 'about')->first();
         $faqs = Faq::all();
         $identities = SiteIdentity::latest()->first();
-        $formOrder = FormOrder::latest()->first();
 
-        return view('about', compact(['seo', 'faqs', 'identities', 'formOrder']));
+        return view('about', compact(['seo', 'faqs', 'identities']));
     }
 }

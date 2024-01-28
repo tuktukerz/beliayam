@@ -23,7 +23,6 @@ class WelcomeController extends Controller
         $pricings = Pricing::get()->toArray();
         $values = Content::where('type', 'value')->get();
         $supports = Content::where('type', 'support')->get();
-        $howto = Content::where('type', 'howto')->latest()->first();
         $customers = Content::where('type', 'customer')->get();
 
         $groupedPricings = [];
@@ -50,6 +49,6 @@ class WelcomeController extends Controller
         }
 
         $sectionBanner = SectionBanner::all();
-        return view('welcome', compact('seo', 'sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'howto', 'customers', 'identities'));
+        return view('welcome', compact('seo', 'sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'customers', 'identities'));
     }
 }

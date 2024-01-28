@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use App\Models\FormOrder;
+use App\Models\SiteIdentity;
 use DOMDocument;
 use Illuminate\Http\Request;
 
 class FormOrderController extends Controller
 {
+    public function formView() {
+        $formOrder = FormOrder::latest()->first();
+        $identities = SiteIdentity::latest()->first();
+        $howto = Content::where('type', 'howto')->latest()->first();
+
+        return view('form', compact(['formOrder',  'identities', 'howto']));
+    }
+
     /**
      * Display a listing of the resource.
      */

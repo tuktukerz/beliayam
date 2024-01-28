@@ -31,6 +31,7 @@ Route::get('product', [ProductController::class, 'showListProduct'])->name('show
 Route::get('privacy', [LegalController::class, 'listPrivacy'])->name('privacy');
 Route::get('tos', [LegalController::class, 'listTos'])->name('tos');
 Route::get('about', [AboutUsController::class, 'show'])->name('about');
+Route::get('order', [FormOrderController::class, 'formView'])->name('order');
 
 
 Auth::routes([

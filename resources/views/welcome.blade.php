@@ -225,16 +225,6 @@
     </div>
 </section>
 
-
-@if ($howto)
-<section class="px-6 xl:px-32 text-center flex flex-col justify-center items-center mb-24">
-    <h1 class="font-bold text-2xl md:text-4xl mb-4 md:mb-12">HOW TO <span class="text-red-600">ORDER</span></h1>
-    <p class="max-w-3xl text-sm md:text-base text-gray-500 mb-6">{{ $howto->description }}</p>
-    <img src="{{ asset('storage/howto/' . $howto->image . '?ver=' . strtotime($howto->updated_at)) }}" class="object-contain transition"
-         alt="How To Guide"/>
-</section>
-@endif
-
 @if (count($customers) > 0)
 @php
 $loopCount = ceil(count($customers) / 4);
