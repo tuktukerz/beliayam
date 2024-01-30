@@ -86,15 +86,16 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <img
-                                            src="{{ asset('storage/product/' . $product->image . '?ver=' . strtotime($product->updated_at)) }}">
+                                            src="{{ asset('storage/product/' . $product->image . '?ver=' . strtotime($product->updated_at)) }}" height="300">
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group mb-3">
                                             <label>Image</label>
+                                            <small>Mohon untuk mengunggah gambar dibawah 5 MB</small>
                                             <input class="form-control form-control" type="file" name="productImage"
                                                    accept="image/jpeg,image/jpg,image/png,">
                                         </div>
-                                        @error('imageFile')
+                                        @error('productImage')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>

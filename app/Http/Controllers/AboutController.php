@@ -59,6 +59,12 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'imageFile' => ['file', 'max:5000'],
+            ]
+        );
+
         $oneType = ['story', 'activities', 'roadmap'];
 
         foreach ($oneType as $type) {
@@ -102,6 +108,12 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
+        $request->validate(
+            [
+                'imageFile' => ['file', 'max:5000'],
+            ]
+        );
+        
         // Handle image file update if needed
         if ($request->hasFile('imageFile')) {
             $path = 'public/' . $request->input('type') . '/';

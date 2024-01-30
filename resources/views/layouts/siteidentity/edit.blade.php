@@ -139,20 +139,32 @@
                                             <div class="">
                                                 <div class="form-group mb-3">
                                                     <label>Logo (Light)</label>
-                                                    <input class="form-control" type="file" name="logoLight">
+                                                    <small>Mohon untuk mengunggah gambar dibawah 5 MB</small>
+                                                    <input class="form-control" type="file" name="logoLight" accept="image/jpeg,image/jpg,image/png,">
                                                 </div>
+                                                @error('logoLight')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                             <div class="">
                                                 <div class="form-group mb-3">
                                                     <label>Logo (Black)</label>
-                                                    <input class="form-control" type="file" name="logoBlack">
+                                                    <small>Mohon untuk mengunggah gambar dibawah 5 MB</small>
+                                                    <input class="form-control" type="file" name="logoBlack" accept="image/jpeg,image/jpg,image/png,">
                                                 </div>
+                                                @error('logoBlack')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                             <div class="">
                                                 <div class="form-group mb-3">
                                                     <label>Advertisement</label>
-                                                    <input class="form-control" type="file" name="adFile">
+                                                    <small>Mohon untuk mengunggah gambar dibawah 5 MB</small>
+                                                    <input class="form-control" type="file" name="adFile" accept="image/jpeg,image/jpg,image/png,">
                                                 </div>
+                                                @error('adFile')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                             <div class="col-12 d-flex justify-content-start mt-3">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Save

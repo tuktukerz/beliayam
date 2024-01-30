@@ -55,6 +55,12 @@ class SectionBannerController extends Controller
      */
     public function update(Request $request, SectionBanner $banner)
     {
+        $request->validate(
+            [
+                'image' => ['file', 'max:5000'],
+            ]
+        );
+
         if ($request->hasFile('image')) {
             // Delete the old image
             if ($banner->image) {

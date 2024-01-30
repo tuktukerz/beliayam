@@ -39,16 +39,21 @@
                                     <div class="row">
                                         <div class="col-md-12 col-12">
                                             <div class="form-group mb-3">
-                                                <label>Image</label><br>
+                                                <label>Image</label>
+                                                <br>
                                                 <img class="img-fluid"
                                                      src="{{ asset('storage/banner/' . $banner->image . '?ver=' . strtotime($banner->updated_at)) }}"
-                                                     data-bs-slide-to="0" width="300" height="300">
+                                                     data-bs-slide-to="0" width="300">
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label>Image</label>
+                                                <small>Mohon untuk mengunggah gambar dibawah 5 MB</small>
                                                 <input class="form-control form-control" type="file"
-                                                       name="image">
+                                                       name="image" accept="image/jpeg,image/jpg,image/png,">
                                             </div>
+                                            @error('image')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="col-12 d-flex justify-content-start mt-3">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Simpan

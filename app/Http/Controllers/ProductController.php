@@ -39,6 +39,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'price' => 'numeric',
+            'productImage' => 'file|max:5000'
         ]);
 
         $imageName = null;
@@ -82,6 +83,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'price' => 'numeric',
+            'productImage' => 'file|max:5000'
         ]);
 
         if ($request->hasFile('productImage')) {

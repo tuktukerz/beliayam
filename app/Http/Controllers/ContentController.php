@@ -32,6 +32,12 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'imageFile' => ['file', 'max:5000'],
+            ]
+        );
+
         if ($request['type'] == 'howto') {
             $howtoCount = Content::where('type', 'howto')->count();
             if ($howtoCount > 0) {
@@ -71,6 +77,12 @@ class ContentController extends Controller
      */
     public function update(Request $request, Content $content)
     {
+        $request->validate(
+            [
+                'imageFile' => ['file', 'max:5000'],
+            ]
+        );
+        
         // Handle image file update if needed
         if ($request->hasFile('imageFile')) {
             $path = 'public/' . $request->input('type') . '/';

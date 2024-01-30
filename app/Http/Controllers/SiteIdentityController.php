@@ -55,6 +55,14 @@ class SiteIdentityController extends Controller
      */
     public function update(Request $request, SiteIdentity $siteIdentity)
     {
+        $request->validate(
+            [
+                'logoBlack' => ['file', 'max:5000'],
+                'logoLight' => ['file', 'max:5000'],
+                'adFile' => ['file', 'max:5000'],
+            ]
+        );
+
         if ($request->hasFile('logoBlack')) {
             if ($siteIdentity->logo_black) {
                 Storage::delete('public/logo/' . $siteIdentity->logo_black);

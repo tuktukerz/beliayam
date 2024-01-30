@@ -81,6 +81,7 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-3">
                                                     <label>Image</label>
+                                                    <small>Mohon untuk mengunggah gambar dibawah 5 MB</small>
                                                     <input class="form-control form-control" type="file" name="imageFile"
                                                         accept="image/jpeg,image/jpg,image/png,">
                                                 </div>
