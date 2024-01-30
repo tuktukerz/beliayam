@@ -80,6 +80,14 @@
                                             </div>
                                             <div class="">
                                                 <div class="form-group">
+                                                    <label>Footer Description</label>
+                                                    <textarea class="form-control" placeholder="Description"
+                                                          name="footer_desc"
+                                                          rows="5">{{ $siteIdentity->footer_desc }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <div class="form-group">
                                                     <label>Google Play Link</label>
                                                     <input type="text" class="form-control" name="google_play"
                                                            placeholder="Google Play Link"

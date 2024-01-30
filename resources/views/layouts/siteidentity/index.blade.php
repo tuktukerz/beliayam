@@ -76,6 +76,14 @@
                                                         </p>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-12 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Footer Desc</label>
+                                                        <p class="form-control-static">
+                                                            {{ $siteIdentity->footer_desc }}
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col">
                                                 <div class="col-md-12 col-12">
