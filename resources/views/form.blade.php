@@ -26,9 +26,9 @@
     @endif
 
     @if ($formOrder)
-        <section id="form_order">
-            <div class="my-6 border-b-2 border-red-600 w-fit pb-2">
-                <h1 class="font-bold text-2xl md:text-3xl">Form Order</h1>
+        <section class="mb-24">
+            <div class="w-full pb-2 flex justify-center items-center">
+                <h1 class="font-bold text-2xl md:text-4xl mb-4 md:mb-12">FORM <span class="text-red-600">ORDER</span></h1>
             </div>
             <div class="flex justify-center items-center">
                 {!! $formOrder->link !!}

@@ -44,8 +44,7 @@
     </section>
 
     <section class="mb-24">
-        <h1 class="font-bold text-2xl md:text-4xl my-4">{{ $story->title }}</h1>
-
+        <h1 class="font-bold text-2xl md:text-4xl mb-4 md:mb-4 text-center uppercase">{{ $story->title }}</span></h1>
         <pre class="whitespace-pre-wrap text-gray-600 font-sans text-justify text-sm sm:text-base">{{ $story->description }}</pre>
     </section>
 
@@ -65,7 +64,7 @@
     @endif
 
     <section class="mb-24">
-        <h1 class="font-bold text-2xl md:text-4xl my-4">{{ $activities->title }}</h1>
+        <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">{{ $activities->title }}</h1>
 
         <div class="flex justify-center">
             <img src="{{ asset('storage/activities/' . $activities->image . '?ver=' . strtotime($activities->updated_at)) }}"
@@ -74,7 +73,7 @@
     </section>
 
     <section class="mb-24">
-        <h1 class="font-bold text-2xl md:text-4xl my-4">{{ $roadmap->title }}</h1>
+        <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">{{ $roadmap->title }}</h1>
 
         <div class="flex justify-center">
             <img src="{{ asset('storage/roadmap/' . $roadmap->image . '?ver=' . strtotime($roadmap->updated_at)) }}"
@@ -83,6 +82,7 @@
     </section>
 
     <section class="mb-24 lg:mx-44 flex flex-col gap-6">
+        <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">Kantor Kami</h1>
         @foreach ($places as $place)
             <div class="flex gap-6 flex-col md:flex-row items-center">
                 <div>

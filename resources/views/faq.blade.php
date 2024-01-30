@@ -16,10 +16,8 @@
 <x-Navbar :logo="$identities->logo_black" :phone="$identities->phone"/>
 
 <main class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-    <section class="mb-24">
-        <div class="my-6 border-b-2 border-red-600 w-fit pb-2">
-            <h1 class="font-bold text-2xl md:text-3xl">Pertanyaan yang Sering Diajukan (FAQ)</h1>
-        </div>
+    <section class="mb-24 text-center">
+            <h1 class="font-bold text-2xl md:text-3xl uppercase">Pertanyaan yang Sering Diajukan (FAQ)</h1>
         @foreach ($faqs as $faq)
         <div class="*:font-sans mb-6">
             <h2 class="font-bold text-xl mb-4">{{ $loop->iteration . '. ' . $faq->question }}</h2>

@@ -17,7 +17,7 @@
 
 
 <section class="px-6 xl:px-32 text-center flex flex-col justify-center items-center mb-24">
-    <h1 class="font-bold text-2xl md:text-4xl text-center my-16">Produk <span class="text-red-600">Kami</span></h1>
+    <h1 class="font-bold text-2xl md:text-4xl text-center my-16 uppercase">Produk <span class="text-red-600">Kami</span></h1>
     <section class="mb-24 mx-6 w-full">
         <div
             class="rounded-3xl lg:rounded-[6.5rem] overflow-hidden py-6 gap-8 grid grid-cols-fit justify-center">
