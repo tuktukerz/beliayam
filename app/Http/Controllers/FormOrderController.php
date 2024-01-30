@@ -15,7 +15,9 @@ class FormOrderController extends Controller
         $identities = SiteIdentity::latest()->first();
         $howto = Content::where('type', 'howto')->latest()->first();
 
-        return view('form', compact(['formOrder',  'identities', 'howto']));
+        $formattedPhone = preg_replace('/(\d{4})/', '$1 ',$identities['phone']);
+
+        return view('form', compact(['formOrder',  'identities', 'howto', 'formattedPhone']));
     }
 
     /**

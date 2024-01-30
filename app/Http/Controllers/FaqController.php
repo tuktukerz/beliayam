@@ -12,7 +12,9 @@ class FaqController extends Controller
         $faqs = Faq::all();
         $identities = SiteIdentity::latest()->first();
 
-        return view('faq', compact(['faqs', 'identities']));
+        $formattedPhone = preg_replace('/(\d{4})/', '$1 ',$identities['phone']);
+
+        return view('faq', compact(['faqs', 'identities', 'formattedPhone']));
     }
 
     /**

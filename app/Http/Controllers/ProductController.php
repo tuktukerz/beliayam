@@ -125,6 +125,8 @@ class ProductController extends Controller
         $products = Product::all();
         $identities = SiteIdentity::latest()->first();
 
-        return view('product_list', compact('seo', 'products', 'identities'));
+        $formattedPhone = preg_replace('/(\d{4})/', '$1 ',$identities['phone']);
+
+        return view('product_list', compact('seo', 'products', 'identities', 'formattedPhone'));
     }
 }

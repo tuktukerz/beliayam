@@ -32,7 +32,9 @@ class AboutController extends Controller
 
         $identities = SiteIdentity::latest()->first();
 
-        return view('about', compact(['seo', 'visions', 'missions', 'places', 'story', 'activities', 'roadmap', 'identities', 'supports']));
+        $formattedPhone = preg_replace('/(\d{4})/', '$1 ',$identities['phone']);
+
+        return view('about', compact(['seo', 'visions', 'missions', 'places', 'story', 'activities', 'roadmap', 'identities', 'supports', 'formattedPhone']));
     }
     /**
      * Display a listing of the resource.

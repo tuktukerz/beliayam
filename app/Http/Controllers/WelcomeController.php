@@ -48,7 +48,9 @@ class WelcomeController extends Controller
             }
         }
 
+        $formattedPhone = preg_replace('/(\d{4})/', '$1 ',$identities['phone']);
+
         $sectionBanner = SectionBanner::all();
-        return view('welcome', compact('seo', 'sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'customers', 'identities'));
+        return view('welcome', compact('seo', 'sectionBanner', 'groupedPricings', 'priceAverageByisland', 'values', 'supports', 'customers', 'identities', 'formattedPhone'));
     }
 }

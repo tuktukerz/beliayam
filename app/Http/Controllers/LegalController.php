@@ -15,7 +15,9 @@ class LegalController extends Controller
         $privacies = Legal::get()->where('type', 'privacy');
         $identities = SiteIdentity::latest()->first();
 
-        return view('privacy', compact('seo', 'privacies', 'identities'));
+        $formattedPhone = preg_replace('/(\d{4})/', '$1 ',$identities['phone']);
+
+        return view('privacy', compact('seo', 'privacies', 'identities', 'formattedPhone'));
     }
 
     public function listTos()
@@ -24,7 +26,9 @@ class LegalController extends Controller
         $tos = Legal::get()->where('type', 'tos');
         $identities = SiteIdentity::latest()->first();
 
-        return view('tos', compact('seo', 'tos', 'identities'));
+        $formattedPhone = preg_replace('/(\d{4})/', '$1 ',$identities['phone']);
+
+        return view('tos', compact('seo', 'tos', 'identities', 'formattedPhone'));
     }
 
     /**
