@@ -59,13 +59,16 @@
                                     <div class="col">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Type</label>
+                                                <label>Satuan</label>
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="piece" required>
-                                                        <option value="">Select Type</option>
+                                                        <option value="">Pilih Satuan</option>
+                                                        <option value="pcs">Pcs</option>
+                                                        <option value="pax">Pax</option>
                                                         <option value="kg">Kg</option>
-                                                        <option value="butir">Butir</option>
                                                         <option value="ekor">Ekor</option>
+                                                        <option value="box">Box</option>
+                                                        <option value="ton">Ton</option>
                                                     </select>
                                                 </fieldset>
                                             </div>

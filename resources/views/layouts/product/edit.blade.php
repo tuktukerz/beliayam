@@ -57,17 +57,24 @@
                                     <div class="col">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Type</label>
+                                                <label>Satuan</label>
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="piece" required>
-                                                        <option value="">Piece</option>
+                                                        <option value="">Pilih Satuan</option>
+                                                        <option value="pcs" @selected($product->piece ==
+                                                            'pcs')>Pcs
+                                                        </option>
+                                                        <option value="pax" @selected($product->piece ==
+                                                            'pax')>Pax
+                                                        </option>
                                                         <option value="kg" @selected($product->piece ==
                                                             'kg')>Kg
                                                         </option>
-                                                        <option value="butir" @selected($product->piece ==
-                                                            'butir')>Butir
-                                                        </option>
                                                         <option value="ekor" @selected($product->piece == 'ekor')>Ekor
+                                                        </option>
+                                                        <option value="box" @selected($product->piece == 'box')>Box
+                                                        </option>
+                                                        <option value="ton" @selected($product->piece == 'ton')>Ton
                                                         </option>
                                                     </select>
                                                 </fieldset>
