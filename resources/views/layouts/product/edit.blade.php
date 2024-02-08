@@ -60,7 +60,7 @@
                                                 <label>Satuan</label>
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="piece" required>
-                                                        <option value="">Pilih Satuan</option>
+                                                        <option value="" disabled>Pilih Satuan</option>
                                                         <option value="pcs" @selected($product->piece ==
                                                             'pcs')>Pcs
                                                         </option>
@@ -80,6 +80,25 @@
                                                 </fieldset>
                                             </div>
                                             @error('value')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label>Tampilkan Harga</label>
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect" name="is_show" required>
+                                                        <option value="" disabled>Pilih On / Off</option>
+                                                        <option value="true" @selected($product->is_show == true)>On
+                                                        </option>
+                                                        <option value="false" @selected($product->is_show == false)>Off
+                                                        </option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                            @error('is_show')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>

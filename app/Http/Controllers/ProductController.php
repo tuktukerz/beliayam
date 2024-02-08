@@ -81,9 +81,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $request['is_show'] = filter_var($request->input('is_show'), FILTER_VALIDATE_BOOLEAN);
+
         $request->validate([
             'price' => 'numeric',
-            'productImage' => 'file|max:5000'
+            'productImage' => 'file|max:5000',
+            'is_show' => 'boolean',
         ]);
 
         if ($request->hasFile('productImage')) {

@@ -53,6 +53,7 @@
                             <th>Nama Produk</th>
                             <th>Harga</th>
                             <th>Satuan</th>
+                            <th>Tampilkan Harga</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -70,6 +71,13 @@
                             <td> {{ $formattedNumber }}</td>
                             <td>
                                 {{ $item->piece }}
+                            </td>
+                            <td>
+                                @if($item->is_show)
+                                <span class="badge bg-success">On</span>
+                                @else
+                                <span class="badge bg-danger">Off</span>
+                                @endif
                             </td>
                             <td>
                                 <form action="{{ route('product.destroy', $item->id) }}" method="post">
@@ -90,3 +98,4 @@
         </section>
     </div>
     @endsection
+

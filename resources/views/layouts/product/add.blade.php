@@ -62,7 +62,7 @@
                                                 <label>Satuan</label>
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="piece" required>
-                                                        <option value="">Pilih Satuan</option>
+                                                        <option value="" disabled>Pilih Satuan</option>
                                                         <option value="pcs">Pcs</option>
                                                         <option value="pax">Pax</option>
                                                         <option value="kg">Kg</option>
@@ -75,6 +75,25 @@
                                             @error('piece')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
+                                        </div>
+                                        <div class="col">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Tampilkan Harga</label>
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect" name="is_show" required>
+                                                            <option value="" disabled>Pilih On / Off</option>
+                                                            <option value="true">On
+                                                            </option>
+                                                            <option value="false">Off
+                                                            </option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                @error('is_show')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-3">
