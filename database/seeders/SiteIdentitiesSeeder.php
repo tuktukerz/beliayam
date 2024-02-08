@@ -16,6 +16,9 @@ class SiteIdentitiesSeeder extends Seeder
     {
         $adFiles = Storage::files('public/ad');
 
+        $adFileName = null;
+        $adFileExtension = null;
+
         if (!empty($adFiles)) {
             // Assuming you want to get the first file
             $ad = $adFiles[0];

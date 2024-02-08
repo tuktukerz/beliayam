@@ -43,7 +43,7 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="type"
                                                             required>
-                                                        <option value="">Select Type</option>
+                                                        <option value="" disabled>Select Type</option>
                                                         <option value="tos">Syarat & Ketentuan Pengguna</option>
                                                         <option value="privacy">Kebijakan Privasi</option>
                                                     </select>

@@ -42,11 +42,23 @@
                     </a>
                     <div class="mt-2 mb-5 flex items-center justify-between">
                         <p>
-                            <span class="text-3xl font-bold text-slate-900">{{ $formattedNumber }}</span>
-                            <span class="text-sm text-slate-900">/ {{ $product->piece }}</span>
+                            @if($product->is_show)
+                                <span class="text-3xl font-bold text-slate-900">{{ $formattedNumber }}</span>
+                                <span class="text-sm text-slate-900">/ {{ $product->piece }}</span>
+                            @else
+                                <div class="flex items-center p-2 mb-2 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+                                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                                    </svg>
+                                    <span class="sr-only">Info</span>
+                                    <div>
+                                        <span class="font-medium text-left">Dapatkan Harga Penawaran Khusus ! </span>
+                                    </div>
+                                </div>
+                            @endif
                         </p>
                     </div>
-                    <a href="https://wa.me/{{ $identities->phone }}?text=Tentang produk {{$product->name}} dengan harga {{ $formattedNumber }}"
+                    <a href="https://wa.me/{{ $identities->phone }}?text=Halo admin, izin bertanya mengenai produk {{$product->name}} dengan harga {{ $formattedNumber }} apakah boleh?"
                        class="flex items-center justify-center rounded-md bg-red-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-800">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor" stroke-width="2">
@@ -62,16 +74,16 @@
     </section>
 </section>
 
-<x-Footer 
-    :logo-black="$identities->logo_black" 
-    :updated-at="$identities->updated_at" 
-    :footer-desc="$identities->footer_desc" 
-    :phone="$identities->phone" 
+<x-Footer
+    :logo-black="$identities->logo_black"
+    :updated-at="$identities->updated_at"
+    :footer-desc="$identities->footer_desc"
+    :phone="$identities->phone"
     :$formattedPhone
-    :email="$identities->email" 
-    :youtube="$identities->youtube" 
-    :instagram="$identities->instagram" 
-    :twitter="$identities->twitter" 
+    :email="$identities->email"
+    :youtube="$identities->youtube"
+    :instagram="$identities->instagram"
+    :twitter="$identities->twitter"
 />
 
 </html>

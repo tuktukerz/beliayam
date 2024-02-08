@@ -40,7 +40,7 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="type"
                                                             required>
-                                                        <option value="">Select Type</option>
+                                                        <option value="" disabled>Select Type</option>
                                                         <option value="tos" @selected($legal->type == 'tos')>Syarat &
                                                             Ketentuan Pengguna
                                                         </option>

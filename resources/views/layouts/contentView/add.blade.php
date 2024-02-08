@@ -42,7 +42,7 @@
                                                 <label>Type</label>
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="type" required>
-                                                        <option value="">Select Type</option>
+                                                        <option value="" disabled>Select Type</option>
                                                         <option value="value">Value</option>
                                                         <option value="support">Support</option>
                                                         <option value="howto">How To</option>

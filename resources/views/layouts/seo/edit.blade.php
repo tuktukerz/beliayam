@@ -40,7 +40,7 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="page"
                                                             required>
-                                                        <option value="">Select Type</option>
+                                                        <option value="" disabled>Select Type</option>
                                                         <option value="home" @selected($seo->page == 'home')>Home
                                                         </option>
                                                         <option value="about" @selected($seo->page ==

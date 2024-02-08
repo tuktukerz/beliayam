@@ -106,7 +106,7 @@
                             <span>SEO</span>
                         </a>
                     </li>
-                    <li class="sidebar-item @yield('seo')">
+                    <li class="sidebar-item @yield('about')">
                         <a href="{{ route('about.index') }}" class='sidebar-link'>
                             <i class="bi bi-card-text"></i>
                             <span>About</span>
