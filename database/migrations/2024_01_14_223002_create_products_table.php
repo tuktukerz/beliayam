@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->string("price")->nullable();
             $table->string("piece")->nullable();
             $table->string('image')->nullable();
-            $table->boolean('is_show')->default(false);
         });
     }
 
