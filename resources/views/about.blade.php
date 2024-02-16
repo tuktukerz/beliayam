@@ -19,34 +19,40 @@
     <h1 class="font-bold text-2xl md:text-4xl text-center my-16">TENTANG <span class="text-red-600">KAMI</span></h1>
 
     <section class="flex gap-8 justify-center mb-24 flex-col md:flex-row">
-        <div class="shadow-md rounded-md p-6 w-full">
-            <h2 class="font-bold text-2xl md:text-3xl text-red-600 mb-2">VISION</h2>
-            <ul>
-                @foreach ($visions as $vision)
-                    <li class="flex gap-2 items-center">
-                        <div class="bg-red-600 w-2 h-2 rounded-full"></div>
-                        {{ $vision->title }}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-        <div class="shadow-md rounded-md p-6 w-full">
-            <h2 class="font-bold text-2xl md:text-3xl text-red-600 mb-2">MISSION</h2>
-            <ul>
-                @foreach ($missions as $mission)
-                    <li class="flex gap-2 items-center">
-                        <div class="bg-red-600 w-2 h-2 rounded-full"></div>
-                        {{ $mission->title }}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+        @isset($visions)
+            <div class="shadow-md rounded-md p-6 w-full">
+                <h2 class="font-bold text-2xl md:text-3xl text-red-600 mb-2">VISION</h2>
+                <ul>
+                    @foreach ($visions as $vision)
+                        <li class="flex gap-2 items-center">
+                            <div class="bg-red-600 w-2 h-2 rounded-full"></div>
+                            {{ $vision->title }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endisset
+        @isset($missions)
+            <div class="shadow-md rounded-md p-6 w-full">
+                <h2 class="font-bold text-2xl md:text-3xl text-red-600 mb-2">MISSION</h2>
+                <ul>
+                    @foreach ($missions as $mission)
+                        <li class="flex gap-2 items-center">
+                            <div class="bg-red-600 w-2 h-2 rounded-full"></div>
+                            {{ $mission->title }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endisset
     </section>
 
-    <section class="mb-24">
-        <h1 class="font-bold text-2xl md:text-4xl mb-4 md:mb-4 text-center uppercase">{{ $story->title }}</span></h1>
-        <pre class="whitespace-pre-wrap text-gray-600 font-sans text-justify text-sm sm:text-base">{{ $story->description }}</pre>
-    </section>
+    @isset($story)
+        <section class="mb-24">
+            <h1 class="font-bold text-2xl md:text-4xl mb-4 md:mb-4 text-center uppercase">{{ $story->title }}</span></h1>
+            <pre class="whitespace-pre-wrap text-gray-600 font-sans text-justify text-sm sm:text-base">{{ $story->description }}</pre>
+        </section>
+    @endisset
 
     @if (count($supports) > 0)
         <section class="flex flex-col justify-center items-center mb-24">
@@ -63,51 +69,50 @@
         </section>
     @endif
 
-    <section class="mb-24">
-        <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">{{ $activities->title }}</h1>
+    @isset($acitivieties)
+        <section class="mb-24">
+            <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">{{ $activities->title }}</h1>
 
-        <div class="flex justify-center">
-            <img src="{{ asset('storage/activities/' . $activities->image . '?ver=' . strtotime($activities->updated_at)) }}"
-                alt={{ $activities->type }} class="rounded-3xl max-h-[800px]">
-        </div>
-    </section>
-
-    <section class="mb-24">
-        <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">{{ $roadmap->title }}</h1>
-
-        <div class="flex justify-center">
-            <img src="{{ asset('storage/roadmap/' . $roadmap->image . '?ver=' . strtotime($roadmap->updated_at)) }}"
-                alt={{ $roadmap->type }} class="rounded-3xl max-h-[800px]">
-        </div>
-    </section>
-
-    <section class="mb-24 lg:mx-44 flex flex-col gap-6">
-        <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">Kantor Kami</h1>
-        @foreach ($places as $place)
-            <div class="flex gap-6 flex-col md:flex-row items-center">
-                <div>
-                    <img src="{{ asset('storage/place/' . $place->image . '?ver=' . strtotime($place->updated_at)) }}"
-                        class="max-h-32 md:max-h-52 max-w-52 object-contain hover:scale-105 transition" alt="Place" />
-                </div>
-                <div>
-                    <h2 class="font-bold text-2xl md:text-4xl text-red-600 mb-2 text-center sm:text-left">{{ $place->title }}</h2>
-                    <p class="text-sm sm:text-base">{{ $place->description }}</p>
-                </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('storage/activities/' . $activities->image . '?ver=' . strtotime($activities->updated_at)) }}"
+                    alt={{ $activities->type }} class="rounded-3xl max-h-[800px]">
             </div>
-        @endforeach
-    </section>
+        </section>
+    @endisset
+
+    @isset($record)
+        <section class="mb-24">
+            <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">{{ $roadmap->title }}</h1>
+
+            <div class="flex justify-center">
+                <img src="{{ asset('storage/roadmap/' . $roadmap->image . '?ver=' . strtotime($roadmap->updated_at)) }}"
+                    alt={{ $roadmap->type }} class="rounded-3xl max-h-[800px]">
+            </div>
+        </section>
+    @endisset
+
+    @isset($places)
+        <section class="mb-24 lg:mx-44 flex flex-col gap-6">
+            <h1 class="font-bold text-2xl md:text-4xl my-4 text-center uppercase">Kantor Kami</h1>
+            @foreach ($places as $place)
+                <div class="flex gap-6 flex-col md:flex-row items-center">
+                    <div>
+                        <img src="{{ asset('storage/place/' . $place->image . '?ver=' . strtotime($place->updated_at)) }}"
+                            class="max-h-32 md:max-h-52 max-w-52 object-contain hover:scale-105 transition"
+                            alt="Place" />
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-2xl md:text-4xl text-red-600 mb-2 text-center sm:text-left">
+                            {{ $place->title }}</h2>
+                        <p class="text-sm sm:text-base">{{ $place->description }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </section>
+    @endisset
 </main>
 
-<x-Footer 
-    :logo-black="$identities->logo_black" 
-    :updated-at="$identities->updated_at" 
-    :footer-desc="$identities->footer_desc" 
-    :phone="$identities->phone" 
-    :$formattedPhone
-    :email="$identities->email" 
-    :youtube="$identities->youtube" 
-    :instagram="$identities->instagram" 
-    :twitter="$identities->twitter" 
-/>
+<x-Footer :logo-black="$identities->logo_black" :updated-at="$identities->updated_at" :footer-desc="$identities->footer_desc" :phone="$identities->phone" :$formattedPhone :email="$identities->email"
+    :youtube="$identities->youtube" :instagram="$identities->instagram" :twitter="$identities->twitter" />
 
 </html>
